@@ -14,7 +14,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #000000; /* Fond noir pur */
+            background: #000000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,7 +33,6 @@
             color: white;
             width: 90%;
             max-width: 600px;
-            margin: 0 auto;
         }
 
         .main-title {
@@ -65,7 +64,6 @@
             color: white;
         }
 
-        /* Variables et styles de base - Noir et Blanc */
         :root {
             --primary: #000000;
             --secondary: #ffffff;
@@ -97,9 +95,7 @@
         }
 
         @keyframes bodyFadeIn {
-            to {
-                opacity: 1;
-            }
+            to { opacity: 1; }
         }
         
         .container {
@@ -109,14 +105,19 @@
             padding: 0 4%;
         }
         
-        section {
-            padding: 60px 0;
-            min-height: 100vh; /* Chaque section prend toute la hauteur */
-            display: none; /* Cache toutes les sections par défaut */
+        /* Pages pour mobile */
+        .page {
+            display: none;
+            min-height: 100vh;
         }
         
-        section.active {
-            display: block; /* Affiche seulement la section active */
+        .page.active {
+            display: block;
+        }
+        
+        /* Section générique */
+        section {
+            padding: 60px 0;
         }
         
         h1, h2, h3, h4 {
@@ -197,7 +198,7 @@
             color: #25D366;
         }
         
-        /* BOTTOM NAVBAR - NOUVEAU */
+        /* Bottom Navigation Bar */
         .bottom-navbar {
             position: fixed;
             bottom: 0;
@@ -242,20 +243,15 @@
             letter-spacing: 0.5px;
         }
         
-        .nav-item:hover {
-            color: var(--primary);
-            background: rgba(0, 0, 0, 0.03);
-        }
-        
         /* Cache l'ancien header sur mobile */
         header {
             display: none;
         }
         
-        /* Hero Section - AJUSTÉ POUR MOBILE */
+        /* Hero Section */
         .hero {
-            height: calc(100vh - 70px); /* Compense la bottom navbar */
-            min-height: 500px; /* Réduit la hauteur minimale */
+            height: calc(100vh - 70px);
+            min-height: 500px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/hero.jpg');
             background-size: cover;
             background-position: center;
@@ -288,6 +284,11 @@
         }
         
         /* Services Section */
+        #services {
+            padding: 60px 0;
+            background-color: var(--secondary);
+        }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -772,7 +773,7 @@
         /* Bouton flottant Commentaire */
         .fab-comment-btn {
             position: fixed;
-            bottom: 70px; /* Au-dessus de la bottom navbar */
+            bottom: 70px;
             right: 25px;
             width: 55px;
             height: 55px;
@@ -997,7 +998,7 @@
         
         /* Responsive Design - MOBILE FIRST */
         @media (min-width: 769px) {
-            /* RÉTABLIR L'ANCIEN STYLE POUR DESKTOP */
+            /* Rétablir l'ancien style pour desktop */
             .bottom-navbar {
                 display: none;
             }
@@ -1069,15 +1070,13 @@
                 padding: 5px;
             }
             
-            /* Rétablir l'affichage normal des sections */
-            section {
+            /* Rétablir l'affichage normal sur desktop */
+            .page {
                 display: block !important;
-                min-height: auto;
-                padding: 80px 0;
             }
             
             .fab-comment-btn {
-                bottom: 25px; /* Retour à la position originale */
+                bottom: 25px;
             }
             
             /* Hero section desktop */
@@ -1099,93 +1098,7 @@
             }
         }
         
-        /* Responsive Design - Tablettes (mobile landscape et tablettes) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .container {
-                width: 90%;
-                padding: 0 20px;
-            }
-            
-            section {
-                padding: 70px 0;
-            }
-            
-            .nav-item i {
-                font-size: 1.3rem;
-            }
-            
-            .nav-item span {
-                font-size: 0.75rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 50px;
-            }
-            
-            .about-img {
-                order: 0;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 50px;
-            }
-            
-            .comment-header {
-                flex-direction: row;
-            }
-            
-            .hero {
-                min-height: 550px;
-                padding: 40px 20px;
-            }
-            
-            .hero h1 {
-                font-size: clamp(2rem, 6vw, 3.5rem);
-            }
-        }
-        
-        /* Responsive Design - Desktop */
-        @media (min-width: 992px) {
-            .container {
-                width: 85%;
-                max-width: 1200px;
-            }
-            
-            section {
-                padding: 80px 0;
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: 30px;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-            }
-            
-            .gallery-item {
-                height: 280px;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            
-            .portfolio-item {
-                height: 300px;
-            }
-        }
-        
-        /* Très petits écrans (téléphones en mode portrait) */
+        /* Très petits écrans */
         @media (max-width: 480px) {
             .container {
                 width: 94%;
@@ -1236,7 +1149,7 @@
                 font-size: 0.75rem;
             }
             
-            /* Ajustements pour bottom navbar */
+            /* Bottom navbar */
             .bottom-navbar {
                 padding: 10px 0;
             }
@@ -1254,7 +1167,7 @@
                 font-size: 0.65rem;
             }
             
-            /* Hero adjustments for small screens */
+            /* Hero adjustments */
             .hero {
                 min-height: 450px;
                 padding: 20px 10px;
@@ -1276,78 +1189,14 @@
                 font-size: 0.85rem;
             }
         }
-        
-        /* Mode paysage sur mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 60px 20px;
-            }
-            
-            .hero-content {
-                padding-top: 40px;
-            }
-            
-            .comment-modal-content {
-                max-height: 90vh;
-            }
-            
-            .comments-list {
-                max-height: 200px;
-            }
-            
-            .bottom-navbar {
-                padding: 8px 0;
-            }
-            
-            .nav-item i {
-                margin-bottom: 2px;
-            }
-        }
-        
-        /* Support pour appareils avec notch ou safe areas */
-        @supports (padding: max(0px)) {
-            .hero,
-            .navbar,
-            footer {
-                padding-left: max(15px, env(safe-area-inset-left));
-                padding-right: max(15px, env(safe-area-inset-right));
-            }
-            
-            .fab-comment-btn {
-                right: max(25px, env(safe-area-inset-right));
-                bottom: max(75px, env(safe-area-inset-bottom));
-            }
-            
-            .bottom-navbar {
-                padding-bottom: max(10px, env(safe-area-inset-bottom));
-            }
-        }
-        
-        /* Optimisation pour le chargement */
-        .service-img,
-        .portfolio-img,
-        .gallery-img,
-        .about-img img,
-        .client-img img {
-            will-change: transform;
-            backface-visibility: hidden;
-        }
-        
-        /* Amélioration du scroll sur mobile */
-        .comments-list,
-        .comment-modal-content {
-            -webkit-overflow-scrolling: touch;
-        }
 </style></head>
 <body>
-    <!-- Splash Screen SIMPLIFIÉ -->
+    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-content">
             <div class="main-title">
-                <div class="elite">Elite Prestations</div>
-                <div class="prestations"></div>
+                <div class="elite">Elite</div>
+                <div class="prestations">Prestations</div>
             </div>
             <div class="subtitle">Le Meilleur Pour Vous</div>
         </div>
@@ -1359,12 +1208,11 @@
             <nav class="navbar">
                 <a href="#" class="logo">ÉLITE PRESTATIONS</a>
                 <ul class="nav-links">
-                   <!-- <li><a href="#accueil" class="nav-link" data-section="accueil">Accueil</a></li>-->
-                    <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
-                    <li><a href="#portfolio" class="nav-link" data-section="portfolio">Réalisations</a></li>
-                    <li><a href="#about" class="nav-link" data-section="about">À propos</a></li>
-                    <li><a href="#gallery" class="nav-link" data-section="gallery">Galerie</a></li>
-                    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                    <li><a href="#accueil" class="nav-link" data-page="accueil">Accueil</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-page="portfolio">Réalisations</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">À propos</a></li>
+                    <li><a href="#gallery" class="nav-link" data-page="gallery">Galerie</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -1373,526 +1221,433 @@
         </div>
     </header>
 
-    <!-- Bottom Navigation Bar - MOBILE ONLY (sans "Accueil") -->
+    <!-- Bottom Navigation Bar - MOBILE ONLY -->
     <nav class="bottom-navbar">
-        <a href="#services" class="nav-item" data-section="services">
-            <i class="fas fa-concierge-bell"></i>
-            <span>Services</span>
+        <a href="#accueil" class="nav-item active" data-page="accueil">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
         </a>
-        <a href="#portfolio" class="nav-item" data-section="portfolio">
+        <a href="#portfolio" class="nav-item" data-page="portfolio">
             <i class="fas fa-images"></i>
             <span>Réalisations</span>
         </a>
-        <a href="#about" class="nav-item" data-section="about">
+        <a href="#about" class="nav-item" data-page="about">
             <i class="fas fa-info-circle"></i>
             <span>À propos</span>
         </a>
-        <a href="#gallery" class="nav-item" data-section="gallery">
+        <a href="#gallery" class="nav-item" data-page="gallery">
             <i class="fas fa-camera"></i>
             <span>Galerie</span>
         </a>
-        <a href="#contact" class="nav-item" data-section="contact">
+        <a href="#contact" class="nav-item" data-page="contact">
             <i class="fas fa-envelope"></i>
             <span>Contact</span>
         </a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero active" id="accueil">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Élégance & Professionnalisme</h1>
-                <p>Élite Prestation, l'excellence événementielle au Gabon. De la location de salle à l'organisation complète, nous créons des moments d'exception.</p>
-                <a href="#contact" class="btn" data-section="contact">Planifier mon événement</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <h2>Nos Services Complets</h2>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('assets/SALLE.png');"></div>
-                    <div class="service-content">
-                        <h3>Location de Salle Événementielle</h3>
-                        <p>Une salle spacieuse et modulable d'une capacité de 200 places, idéale pour tous vos événements.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Mariages</span>
-                            <span class="service-tag">Séminaires</span>
-                            <span class="service-tag">Anniversaires</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Capacité : 200 personnes</li>
-                            <li>Espace modulable selon vos besoins</li>
-                            <li>Équipement de base inclus</li>
-                            <li>Localisation stratégique</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Réserver la salle</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('assets/mariage.png');"></div>
-                    <div class="service-content">
-                        <h3>Organisation de Mariages</h3>
-                        <p>Service complet ou à la carte pour un mariage personnalisé selon vos souhaits et votre budget.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Complet</span>
-                            <span class="service-tag">Sur mesure</span>
-                            <span class="service-tag">À la carte</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Matériel (sono, décoration, etc.)</li>
-                            <li>Service traiteur</li>
-                            <li>Photographie et vidéo</li>
-                            <li>Personnel dédié</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Organiser mon mariage</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/709658739.jpg?k=5c9d4ce038179456a5e2cd6eb153e93061858c89cc11c59fafba28b97b2ac36e&o=');"></div>
-                    <div class="service-content">
-                        <h3>Appartement Meublé</h3>
-                        <p>Chambre nuptiale ou hébergement confortable avec toutes les commodités pour vos invités.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Chambre nuptiale</span>
-                            <span class="service-tag">Hébergement</span>
-                            <span class="service-tag">Confort</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Salon, chambre, douche, cuisine</li>
-                            <li>WiFi haut débit</li>
-                            <li>Accès sécurisé 24h/24</li>
-                            <li>Idéal pour mariages et séjours</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Réserver l'appartement</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('assets/NETTOYAGE.png');"></div>
-                    <div class="service-content">
-                        <h3>Service de Nettoyage</h3>
-                        <p>Nettoyage professionnel avant et après vos événements pour des espaces impeccables.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Avant événement</span>
-                            <span class="service-tag">Après événement</span>
-                            <span class="service-tag">Professionnel</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Nettoyage avant événement</li>
-                            <li>Nettoyage après événement</li>
-                            <li>Produits professionnels</li>
-                            <li>Équipe qualifiée</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Demander un devis</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('assets/service.png');"></div>
-                    <div class="service-content">
-                        <h3>Services Professionnels</h3>
-                        <p>Accueil, protocole et restauration pour vos événements d'entreprise et culturels.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Entreprise</span>
-                            <span class="service-tag">Culturel</span>
-                            <span class="service-tag">Professionnel</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Protocole et accueil</li>
-                            <li>Service pause-café</li>
-                            <li>Service café pour enterrement</li>
-                            <li>Personnel qualifié</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Personnaliser mon service</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('assets/voiture.jpg');"></div>
-                    <div class="service-content">
-                        <h3>Transport & Accompagnement</h3>
-                        <p>Solutions de transport et services d'accompagnement pour tous vos déplacements.</p>
-                        <div class="service-tags">
-                            <span class="service-tag">Transport</span>
-                            <span class="service-tag">Accueil aéroport</span>
-                            <span class="service-tag">Accompagnement</span>
-                        </div>
-                        <ul class="service-features">
-                            <li>Transport (bus, véhicules)</li>
-                            <li>Accueil à l'aéroport</li>
-                            <li>Accompagnement événementiel</li>
-                            <li>Service personnalisé</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-outline" data-section="contact">Organiser mon transport</a>
-                        </div>
-                    </div>
+    <!-- PAGE ACCUEIL (avec Hero et Services) -->
+    <div class="page active" id="accueil-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Élégance & Professionnalisme</h1>
+                    <p>Élite Prestation, l'excellence événementielle au Gabon. De la location de salle à l'organisation complète, nous créons des moments d'exception.</p>
+                    <a href="#contact" class="btn" data-page="contact">Planifier mon événement</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2>Nos Réalisations</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Mariage Prestige</h3>
-                        <p>Organisation complète d'un mariage haut de gamme pour 150 invités</p>
+        <!-- Services Section - DANS LA PAGE ACCUEIL -->
+        <section id="services">
+            <div class="container">
+                <h2>Nos Services Complets</h2>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/SALLE.png');"></div>
+                        <div class="service-content">
+                            <h3>Location de Salle Événementielle</h3>
+                            <p>Une salle spacieuse et modulable d'une capacité de 200 places, idéale pour tous vos événements.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Mariages</span>
+                                <span class="service-tag">Séminaires</span>
+                                <span class="service-tag">Anniversaires</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Capacité : 200 personnes</li>
+                                <li>Espace modulable selon vos besoins</li>
+                                <li>Équipement de base inclus</li>
+                                <li>Localisation stratégique</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Réserver la salle</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/CONF.jpg" alt="Événement d'entreprise" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Séminaire Corporate</h3>
-                        <p>Organisation d'un séminaire d'entreprise avec protocole pour 200 participants</p>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/mariage.png');"></div>
+                        <div class="service-content">
+                            <h3>Organisation de Mariages</h3>
+                            <p>Service complet ou à la carte pour un mariage personnalisé selon vos souhaits et votre budget.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Complet</span>
+                                <span class="service-tag">Sur mesure</span>
+                                <span class="service-tag">À la carte</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Matériel (sono, décoration, etc.)</li>
+                                <li>Service traiteur</li>
+                                <li>Photographie et vidéo</li>
+                                <li>Personnel dédié</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Organiser mon mariage</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/ANNIV.jpg" alt="Anniversaire" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Anniversaire Sur Mesure</h3>
-                        <p>Célébration d'anniversaire dans notre salle événementielle pour 80 personnes</p>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/709658739.jpg?k=5c9d4ce038179456a5e2cd6eb153e93061858c89cc11c59fafba28b97b2ac36e&o=');"></div>
+                        <div class="service-content">
+                            <h3>Appartement Meublé</h3>
+                            <p>Chambre nuptiale ou hébergement confortable avec toutes les commodités pour vos invités.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Chambre nuptiale</span>
+                                <span class="service-tag">Hébergement</span>
+                                <span class="service-tag">Confort</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Salon, chambre, douche, cuisine</li>
+                                <li>WiFi haut débit</li>
+                                <li>Accès sécurisé 24h/24</li>
+                                <li>Idéal pour mariages et séjours</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Réserver l'appartement</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/AIRFRANCE.jpg" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Conférence d'anniversaire</h3>
-                        <p>90 ans d'Air France</p>
+
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/NETTOYAGE.png');"></div>
+                        <div class="service-content">
+                            <h3>Service de Nettoyage</h3>
+                            <p>Nettoyage professionnel avant et après vos événements pour des espaces impeccables.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Avant événement</span>
+                                <span class="service-tag">Après événement</span>
+                                <span class="service-tag">Professionnel</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Nettoyage avant événement</li>
+                                <li>Nettoyage après événement</li>
+                                <li>Produits professionnels</li>
+                                <li>Équipe qualifiée</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Demander un devis</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/ACCUEIL.jpg" alt="Conférence internationale" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Protocole</h3>
-                        <p>Organisation complète avec hotesses, barmen et sécurité</p>
+
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/service.png');"></div>
+                        <div class="service-content">
+                            <h3>Services Professionnels</h3>
+                            <p>Accueil, protocole et restauration pour vos événements d'entreprise et culturels.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Entreprise</span>
+                                <span class="service-tag">Culturel</span>
+                                <span class="service-tag">Professionnel</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Protocole et accueil</li>
+                                <li>Service pause-café</li>
+                                <li>Service café pour enterrement</li>
+                                <li>Personnel qualifié</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Personnaliser mon service</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/PRIX.jpg" alt="Cérémonie de remise de prix" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3>Cérémonie de Prix</h3>
-                        <p>Gala de remise de prix avec dîner et animation pour 250 personnes</p>
+
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/voiture.jpg');"></div>
+                        <div class="service-content">
+                            <h3>Transport & Accompagnement</h3>
+                            <p>Solutions de transport et services d'accompagnement pour tous vos déplacements.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Transport</span>
+                                <span class="service-tag">Accueil aéroport</span>
+                                <span class="service-tag">Accompagnement</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Transport (bus, véhicules)</li>
+                                <li>Accueil à l'aéroport</li>
+                                <li>Accompagnement événementiel</li>
+                                <li>Service personnalisé</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Organiser mon transport</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>À Propos de Nous</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Élite Prestations, le meilleur pour vous!</h3>
-                    <p>Forte de plusieurs années d'expérience, Élite Prestations s'est imposée comme la référence en matière d'organisation événementielle au Gabon. Notre approche allie élégance, professionnalisme et attention aux détails.</p>
-                    <p>Nous comprenons l'importance de chaque événement dans votre vie, qu'il s'agisse d'un mariage, d'un séminaire professionnel ou d'une célébration familiale. C'est pourquoi nous nous engageons à rendre chaque moment unique et mémorable.</p>
-                    <p>Notre équipe pluridisciplinaire maîtrise tous les aspects de l'organisation événementielle, de la location d'espaces à l'accompagnement personnalisé, en passant par les services de transport et d'hébergement.</p>
-                    <a href="#contact" class="btn" data-section="contact">Travaillons ensemble</a>
-                </div>
-                <div class="about-img">
-                    <img src="assets/about.jpg" alt="Équipe Élite Prestation">
+    <!-- PAGE PORTFOLIO -->
+    <div class="page" id="portfolio-page">
+        <section class="portfolio">
+            <div class="container">
+                <h2>Nos Réalisations</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Mariage Prestige</h3>
+                            <p>Organisation complète d'un mariage haut de gamme pour 150 invités</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/CONF.jpg" alt="Événement d'entreprise" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Séminaire Corporate</h3>
+                            <p>Organisation d'un séminaire d'entreprise avec protocole pour 200 participants</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/ANNIV.jpg" alt="Anniversaire" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Anniversaire Sur Mesure</h3>
+                            <p>Célébration d'anniversaire dans notre salle événementielle pour 80 personnes</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/AIRFRANCE.jpg" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Conférence d'anniversaire</h3>
+                            <p>90 ans d'Air France</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/ACCUEIL.jpg" alt="Conférence internationale" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Protocole</h3>
+                            <p>Organisation complète avec hotesses, barmen et sécurité</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/PRIX.jpg" alt="Cérémonie de remise de prix" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Cérémonie de Prix</h3>
+                            <p>Gala de remise de prix avec dîner et animation pour 250 personnes</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>Témoignages Clients</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/elza.png" alt="Client">
+    <!-- PAGE ABOUT -->
+    <div class="page" id="about-page">
+        <section id="about">
+            <div class="container">
+                <h2>À Propos de Nous</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Élite Prestations, le meilleur pour vous!</h3>
+                        <p>Forte de plusieurs années d'expérience, Élite Prestations s'est imposée comme la référence en matière d'organisation événementielle au Gabon. Notre approche allie élégance, professionnalisme et attention aux détails.</p>
+                        <p>Nous comprenons l'importance de chaque événement dans votre vie, qu'il s'agisse d'un mariage, d'un séminaire professionnel ou d'une célébration familiale. C'est pourquoi nous nous engageons à rendre chaque moment unique et mémorable.</p>
+                        <p>Notre équipe pluridisciplinaire maîtrise tous les aspects de l'organisation événementielle, de la location d'espaces à l'accompagnement personnalisé, en passant par les services de transport et d'hébergement.</p>
+                        <a href="#contact" class="btn" data-page="contact">Travaillons ensemble</a>
                     </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="about-img">
+                        <img src="assets/about.jpg" alt="Équipe Élite Prestation">
                     </div>
-                    <p>"Élite Prestations a transformé notre mariage en un rêve éveillé. Leur attention aux détails et leur professionnalisme ont dépassé toutes nos attentes. Merci pour cette journée parfaite!"</p>
-                    <div class="client-name">Elza BOUKANDOU</div>
-                    <div class="client-role">Mariée</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/abde.jpg" alt="Client">
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Pour notre séminaire annuel, Élite Prestations a fait un travail remarquable. La logistique, l'accueil, tout était parfait. Nos collaborateurs étaient ravis de l'organisation."</p>
-                    <div class="client-name">Abdelmonem Kaâniche</div>
-                    <div class="client-role">Excutif coach</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/MLB.jpg" alt="Client">
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"L'appartement meublé était parfait pour nos invités étrangers. Propre, sécurisé et bien équipé. Le service d'accueil à l'aéroport a été très apprécié."</p>
-                    <div class="client-name">Marie-Louise Bongo</div>
-                    <div class="client-role">Responsable Événements</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/clav.jpg" alt="Client">
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Le service traiteur et l'organisation de notre cocktail d'entreprise étaient impeccables. Les invités ont adoré l'ambiance et la qualité du service."</p>
-                    <div class="client-name">Clavery Yta-mounanga</div>
-                    <div class="client-role">Entrepreneur</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/chantal.jpg" alt="Client">
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Pour les 50 ans de mon père, Élite Prestations a créé une fête magique. La décoration, l'animation, tout était parfait. Merci pour ce moment inoubliable!"</p>
-                    <div class="client-name">Chantal Ondo</div>
-                    <div class="client-role">Particulière</div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="assets/efoua.jpg" alt="Client">
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Service de nettoyage professionnel après notre événement. La salle était impeccable en un temps record. Je recommande vivement!"</p>
-                    <div class="client-name">Boris EFOUA ABA'A</div>
-                    <div class="client-role">Organisateur d'événements</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2>Galerie Photos</h2>
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="mariage">Mariages</button>
-                <button class="filter-btn" data-filter="entreprise">Événements d'entreprise</button>
-                <button class="filter-btn" data-filter="anniversaire">Anniversaires</button>
-                <button class="filter-btn" data-filter="cocktail">Cocktails</button>
+    <!-- PAGE GALLERY -->
+    <div class="page" id="gallery-page">
+        <section class="gallery">
+            <div class="container">
+                <h2>Galerie Photos</h2>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="mariage">Mariages</button>
+                    <button class="filter-btn" data-filter="entreprise">Événements d'entreprise</button>
+                    <button class="filter-btn" data-filter="anniversaire">Anniversaires</button>
+                    <button class="filter-btn" data-filter="cocktail">Cocktails</button>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="mariage">
+                        <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Mariage Élégant</h3>
+                            <p>Cérémonie romantique avec décoration florale</p>
+                        </div>
+                        <div class="gallery-category">Mariage</div>
+                    </div>
+                    <div class="gallery-item" data-category="entreprise">
+                        <img src="assets/CONF.jpg" alt="Conférence d'entreprise" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Conférence Corporate</h3>
+                            <p>Séminaire professionnel avec équipement high-tech</p>
+                        </div>
+                        <div class="gallery-category">Entreprise</div>
+                    </div>
+                    <div class="gallery-item" data-category="anniversaire">
+                        <img src="assets/ANNIV.jpg" alt="Anniversaire festif" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Anniversaire Festif</h3>
+                            <p>Célébration avec décoration personnalisée</p>
+                        </div>
+                        <div class="gallery-category">Anniversaire</div>
+                    </div>
+                    <div class="gallery-item" data-category="cocktail">
+                        <img src="assets/ACCUEIL.jpg" alt="Cocktail d'entreprise" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Cocktail d'Entreprise</h3>
+                            <p>Réception avec service de qualité</p>
+                        </div>
+                        <div class="gallery-category">Cocktail</div>
+                    </div>
+                    <div class="gallery-item" data-category="mariage">
+                        <img src="assets/PRIX.jpg" alt="Dîner de gala" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Dîner de Gala</h3>
+                            <p>Soirée prestigieuse avec service traiteur</p>
+                        </div>
+                        <div class="gallery-category">Mariage</div>
+                    </div>
+                    <div class="gallery-item" data-category="entreprise">
+                        <img src="assets/AIRFRANCE.jpg" alt="Événement institutionnel" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Événement Institutionnel</h3>
+                            <p>Célébration des 90 ans d'Air France</p>
+                        </div>
+                        <div class="gallery-category">Entreprise</div>
+                    </div>
+                    <div class="gallery-item" data-category="cocktail">
+                        <img src="assets/service.png" alt="Réception cocktail" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Réception Cocktail</h3>
+                            <p>Service professionnel et ambiance chaleureuse</p>
+                        </div>
+                        <div class="gallery-category">Cocktail</div>
+                    </div>
+                    <div class="gallery-item" data-category="anniversaire">
+                        <img src="assets/mariage.png" alt="Fête familiale" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Fête Familiale</h3>
+                            <p>Célébration conviviale et personnalisée</p>
+                        </div>
+                        <div class="gallery-category">Anniversaire</div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="mariage">
-                    <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Mariage Élégant</h3>
-                        <p>Cérémonie romantique avec décoration florale</p>
-                    </div>
-                    <div class="gallery-category">Mariage</div>
-                </div>
-                <div class="gallery-item" data-category="entreprise">
-                    <img src="assets/CONF.jpg" alt="Conférence d'entreprise" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Conférence Corporate</h3>
-                        <p>Séminaire professionnel avec équipement high-tech</p>
-                    </div>
-                    <div class="gallery-category">Entreprise</div>
-                </div>
-                <div class="gallery-item" data-category="anniversaire">
-                    <img src="assets/ANNIV.jpg" alt="Anniversaire festif" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Anniversaire Festif</h3>
-                        <p>Célébration avec décoration personnalisée</p>
-                    </div>
-                    <div class="gallery-category">Anniversaire</div>
-                </div>
-                <div class="gallery-item" data-category="cocktail">
-                    <img src="assets/ACCUEIL.jpg" alt="Cocktail d'entreprise" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Cocktail d'Entreprise</h3>
-                        <p>Réception avec service de qualité</p>
-                    </div>
-                    <div class="gallery-category">Cocktail</div>
-                </div>
-                <div class="gallery-item" data-category="mariage">
-                    <img src="assets/PRIX.jpg" alt="Dîner de gala" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Dîner de Gala</h3>
-                        <p>Soirée prestigieuse avec service traiteur</p>
-                    </div>
-                    <div class="gallery-category">Mariage</div>
-                </div>
-                <div class="gallery-item" data-category="entreprise">
-                    <img src="assets/AIRFRANCE.jpg" alt="Événement institutionnel" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Événement Institutionnel</h3>
-                        <p>Célébration des 90 ans d'Air France</p>
-                    </div>
-                    <div class="gallery-category">Entreprise</div>
-                </div>
-                <div class="gallery-item" data-category="cocktail">
-                    <img src="assets/service.png" alt="Réception cocktail" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Réception Cocktail</h3>
-                        <p>Service professionnel et ambiance chaleureuse</p>
-                    </div>
-                    <div class="gallery-category">Cocktail</div>
-                </div>
-                <div class="gallery-item" data-category="anniversaire">
-                    <img src="assets/mariage.png" alt="Fête familiale" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Fête Familiale</h3>
-                        <p>Célébration conviviale et personnalisée</p>
-                    </div>
-                    <div class="gallery-category">Anniversaire</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contactez-Nous</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+    <!-- PAGE CONTACT -->
+    <div class="page" id="contact-page">
+        <section id="contact">
+            <div class="container">
+                <h2>Contactez-Nous</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Notre Adresse</h3>
+                                <p>Libreville, Gabon</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3>Notre Adresse</h3>
-                            <p>Libreville, Gabon</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Téléphone</h3>
+                                <p>+241 62 39 11 21</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>eliteprestationpourvous@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <p>Contactez-nous directement via WhatsApp</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Heures d'Ouverture</h3>
+                                <p>Lun - Ven: 8h00 - 18h00<br>Samedi: 9h00 - 16h00<br>Dimanche: Sur rendez-vous</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Téléphone</h3>
-                            <p>+241 62 39 11 21</p>
-                        </div>
+                    <div class="contact-form">
+                        <form id="whatsapp-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Sujet" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="service" required>
+                                    <option value="">Service intéressé</option>
+                                    <option value="Location de salle">Location de salle</option>
+                                    <option value="Organisation de mariage">Organisation de mariage</option>
+                                    <option value="Appartement meublé">Appartement meublé</option>
+                                    <option value="Service de nettoyage">Service de nettoyage</option>
+                                    <option value="Services professionnels">Services professionnels</option>
+                                    <option value="Transport & Accompagnement">Transport & Accompagnement</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" placeholder="Votre message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
+                            </button>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>eliteprestationpourvous@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <h3>WhatsApp</h3>
-                            <p>Contactez-nous directement via WhatsApp</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h3>Heures d'Ouverture</h3>
-                            <p>Lun - Ven: 8h00 - 18h00<br>Samedi: 9h00 - 16h00<br>Dimanche: Sur rendez-vous</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="whatsapp-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Votre email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="subject" placeholder="Sujet" required>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" id="service" required>
-                                <option value="">Service intéressé</option>
-                                <option value="Location de salle">Location de salle</option>
-                                <option value="Organisation de mariage">Organisation de mariage</option>
-                                <option value="Appartement meublé">Appartement meublé</option>
-                                <option value="Service de nettoyage">Service de nettoyage</option>
-                                <option value="Services professionnels">Services professionnels</option>
-                                <option value="Transport & Accompagnement">Transport & Accompagnement</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" placeholder="Votre message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-whatsapp">
-                            <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1911,22 +1666,21 @@
                 <div class="footer-column">
                     <h3>Liens Rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#accueil" class="nav-link" data-section="accueil">Accueil</a></li>
-                        <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
-                        <li><a href="#portfolio" class="nav-link" data-section="portfolio">Réalisations</a></li>
-                        <li><a href="#about" class="nav-link" data-section="about">À propos</a></li>
-                        <li><a href="#gallery" class="nav-link" data-section="gallery">Galerie</a></li>
-                        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Accueil</a></li>
+                        <li><a href="#portfolio" class="nav-link" data-page="portfolio">Réalisations</a></li>
+                        <li><a href="#about" class="nav-link" data-page="about">À propos</a></li>
+                        <li><a href="#gallery" class="nav-link" data-page="gallery">Galerie</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Nos Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#services" class="nav-link" data-section="services">Location de salle</a></li>
-                        <li><a href="#services" class="nav-link" data-section="services">Organisation de mariages</a></li>
-                        <li><a href="#services" class="nav-link" data-section="services">Appartement meublé</a></li>
-                        <li><a href="#services" class="nav-link" data-section="services">Services de nettoyage</a></li>
-                        <li><a href="#services" class="nav-link" data-section="services">Transport & Accompagnement</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Location de salle</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Organisation de mariages</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Appartement meublé</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Services de nettoyage</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Transport & Accompagnement</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -2006,56 +1760,49 @@
         </div>
     </div>
 
+<script>
+// Splash Screen
+document.addEventListener('DOMContentLoaded', function() {
+    const splashScreen = document.getElementById('splash-screen');
     
-</body>
-</html><script>// Splash Screen Animation - SIMPLIFIÉ
-        document.addEventListener('DOMContentLoaded', function() {
-            const splashScreen = document.getElementById('splash-screen');
+    setTimeout(() => {
+        splashScreen.classList.add('fade-out');
+    }, 2000);
+
+    // Gallery Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             
-            // Cacher le splash screen après 2 secondes
-            setTimeout(() => {
-                splashScreen.classList.add('fade-out');
-            }, 2000);
-
-            // Gallery Filtering
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-                    
-                    const filter = btn.getAttribute('data-filter');
-                    
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
+            const filter = btn.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
             });
+        });
+    });
 
-            // WhatsApp Form Submission
-            document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Récupération des données du formulaire
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const service = document.getElementById('service').value;
-                const message = document.getElementById('message').value;
-                
-                // Numéro de téléphone Élite Prestations (À MODIFIER)
-                const phoneNumber = "24162391121"; // Remplace par le vrai numéro
-                
-                // Construction du message formaté
-                const whatsappMessage = `
+    // WhatsApp Form Submission
+    document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        const phoneNumber = "24162391121";
+        
+        const whatsappMessage = `
 *📞 NOUVELLE DEMANDE - ÉLITE PRESTATIONS*
 
 *👤 Nom complet:* ${name}
@@ -2067,342 +1814,309 @@ ${message}
 
 *📍 Source:* Site web Elite Prestations
 *⏰ Date:* ${new Date().toLocaleString('fr-FR')}
-                `.trim();
-                
-                // Encodage du message pour URL
-                const encodedMessage = encodeURIComponent(whatsappMessage);
-                
-                // Création du lien WhatsApp
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                
-                // Ouverture dans une nouvelle fenêtre
-                window.open(whatsappURL, '_blank');
-                
-                // Réinitialisation du formulaire
-                this.reset();
-                
-                // Message de confirmation
-                alert('✅ Formulaire envoyé! Redirection vers WhatsApp...');
-            });
-            
-            // Système de navigation par pages (mobile)
-            setupMobileNavigation();
-        });
-
-        // Menu Toggle (pour desktop)
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        `.trim();
         
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+        this.reset();
+        alert('✅ Formulaire envoyé! Redirection vers WhatsApp...');
+    });
+    
+    // Système de navigation mobile
+    setupMobileNavigation();
+});
+
+// Menu Toggle (pour desktop)
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Header Scroll Effect (pour desktop)
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (header && window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else if (header) {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Système de navigation mobile
+function setupMobileNavigation() {
+    const navItems = document.querySelectorAll('.nav-item, .nav-link');
+    const pages = document.querySelectorAll('.page');
+    
+    // Fonction pour changer de page
+    function showPage(pageId) {
+        // Cacher toutes les pages
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Afficher la page sélectionnée
+        const targetPage = document.getElementById(pageId + '-page');
+        if (targetPage) {
+            targetPage.classList.add('active');
         }
         
-        // Header Scroll Effect (pour desktop)
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (header && window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else if (header) {
-                header.classList.remove('scrolled');
+        // Mettre à jour l'état actif des liens de navigation
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-page') === pageId) {
+                item.classList.add('active');
             }
         });
         
-        // Système de navigation mobile
-        function setupMobileNavigation() {
-            const navItems = document.querySelectorAll('.nav-item, .nav-link');
-            const sections = document.querySelectorAll('section');
-            
-            // Fonction pour changer de section
-            function showSection(sectionId) {
-                // Cacher toutes les sections
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // Afficher la section sélectionnée
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
-                
-                // Mettre à jour l'état actif des liens de navigation
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('data-section') === sectionId) {
-                        item.classList.add('active');
-                    }
-                });
-                
-                // Faire défiler vers le haut de la section
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Événements de clic sur les liens de navigation
-            navItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const sectionId = this.getAttribute('data-section');
-                    if (sectionId) {
-                        showSection(sectionId);
-                    }
-                });
-            });
-            
-            // Vérifier la taille de l'écran pour appliquer le bon système de navigation
-            function checkScreenSize() {
-                if (window.innerWidth <= 768) {
-                    // Mode mobile : activer la navigation par pages
-                    document.querySelectorAll('.btn[data-section]').forEach(btn => {
-                        btn.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const sectionId = this.getAttribute('data-section');
-                            if (sectionId) {
-                                showSection(sectionId);
-                            }
-                        });
-                    });
-                    
-                    // Cacher toutes les sections sauf la première (accueil)
-                    sections.forEach((section, index) => {
-                        if (index === 0) {
-                            section.classList.add('active');
-                        } else {
-                            section.classList.remove('active');
-                        }
-                    });
-                } else {
-                    // Mode desktop : rétablir le comportement normal
-                    sections.forEach(section => {
-                        section.classList.add('active');
-                        section.style.minHeight = 'auto';
-                    });
-                    
-                    // Rétablir le scroll smooth normal
-                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                        anchor.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            
-                            const targetId = this.getAttribute('href');
-                            if (targetId === '#') return;
-                            
-                            const targetElement = document.querySelector(targetId);
-                            if (targetElement) {
-                                window.scrollTo({
-                                    top: targetElement.offsetTop - 80,
-                                    behavior: 'smooth'
-                                });
-                                
-                                // Close mobile menu if open
-                                if (navLinks) {
-                                    navLinks.classList.remove('active');
-                                }
-                            }
-                        });
-                    });
-                }
-            }
-            
-            // Vérifier la taille de l'écran au chargement et au redimensionnement
-            checkScreenSize();
-            window.addEventListener('resize', checkScreenSize);
-        }
-
-        // Gestion des commentaires
-        const commentBtn = document.getElementById('commentBtn');
-        const commentModal = document.getElementById('commentModal');
-        const commentClose = document.getElementById('commentClose');
-        const commentForm = document.getElementById('commentForm');
-        const commentsList = document.getElementById('commentsList');
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const ratingStars = document.querySelectorAll('.rating-input i');
-
-        // Tableau pour stocker les commentaires (simule une base de données)
-        let comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
-
-        // Ouvrir le modal
-        commentBtn.addEventListener('click', () => {
-            commentModal.classList.add('active');
-            // Toujours charger les commentaires quand on ouvre le modal
-            loadComments();
+        // Faire défiler vers le haut
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-
-        // Fermer le modal
-        commentClose.addEventListener('click', () => {
-            commentModal.classList.remove('active');
-        });
-
-        // Fermer le modal en cliquant à l'extérieur
-        commentModal.addEventListener('click', (e) => {
-            if (e.target === commentModal) {
-                commentModal.classList.remove('active');
-            }
-        });
-
-        // Gestion des onglets
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                
-                // Mettre à jour les onglets actifs
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                btn.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
-                
-                // Si on clique sur l'onglet commentaires, recharger les commentaires
-                if (tabId === 'comments-tab') {
-                    loadComments();
-                }
-            });
-        });
-
-        // Système de notation
-        ratingStars.forEach(star => {
-            star.addEventListener('click', () => {
-                const rating = parseInt(star.getAttribute('data-rating'));
-                document.getElementById('commentRating').value = rating;
-                
-                // Mettre à jour l'affichage des étoiles
-                ratingStars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.remove('far');
-                        s.classList.add('fas');
-                    } else {
-                        s.classList.remove('fas');
-                        s.classList.add('far');
-                    }
-                });
-            });
-            
-            star.addEventListener('mouseover', () => {
-                const rating = parseInt(star.getAttribute('data-rating'));
-                ratingStars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.add('fas');
-                        s.classList.remove('far');
-                    }
-                });
-            });
-            
-            star.addEventListener('mouseout', () => {
-                const currentRating = parseInt(document.getElementById('commentRating').value);
-                ratingStars.forEach((s, index) => {
-                    if (index >= currentRating) {
-                        s.classList.remove('fas');
-                        s.classList.add('far');
-                    }
-                });
-            });
-        });
-
-        // Soumission du formulaire de commentaire
-        commentForm.addEventListener('submit', (e) => {
+    }
+    
+    // Événements de clic sur les liens de navigation
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            const name = document.getElementById('commentName').value;
-            const email = document.getElementById('commentEmail').value;
-            const text = document.getElementById('commentText').value;
-            const rating = parseInt(document.getElementById('commentRating').value);
-            
-            // Valider les champs
-            if (!name.trim() || !email.trim() || !text.trim()) {
-                alert('Veuillez remplir tous les champs obligatoires.');
-                return;
+            const pageId = this.getAttribute('data-page');
+            if (pageId) {
+                showPage(pageId);
             }
-            
-            // Créer un nouvel objet commentaire
-            const newComment = {
-                id: Date.now(),
-                name: name,
-                email: email,
-                text: text,
-                rating: rating,
-                date: new Date().toLocaleDateString('fr-FR'),
-                time: new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})
-            };
-            
-            // Ajouter le commentaire au tableau
-            comments.unshift(newComment); // Ajouter au début
-            
-            // Sauvegarder dans le localStorage
-            localStorage.setItem('elitePrestationsComments', JSON.stringify(comments));
-            
-            // Réinitialiser le formulaire
-            commentForm.reset();
-            document.getElementById('commentRating').value = 0;
-            ratingStars.forEach(star => {
-                star.classList.remove('fas');
-                star.classList.add('far');
+        });
+    });
+    
+    // Vérifier la taille de l'écran
+    function checkScreenSize() {
+        if (window.innerWidth <= 768) {
+            // Mode mobile : activer la navigation par pages
+            document.querySelectorAll('.btn[data-page]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) {
+                        showPage(pageId);
+                    }
+                });
+            });
+        } else {
+            // Mode desktop : rétablir le comportement normal
+            pages.forEach(page => {
+                page.classList.add('active');
             });
             
-            // Recharger les commentaires
-            loadComments();
-            
-            // Afficher un message de confirmation
-            alert('Merci pour votre commentaire ! Il a été publié avec succès.');
-            
-            // Basculer vers l'onglet des commentaires
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            document.querySelector('[data-tab="comments-tab"]').classList.add('active');
-            document.getElementById('comments-tab').classList.add('active');
-            
-            // Recharger les commentaires après avoir changé d'onglet
-            setTimeout(() => {
-                loadComments();
-            }, 100);
-        });
-
-        // Charger et afficher les commentaires
-        function loadComments() {
-            // CORRECTION : Toujours vider la liste avant de recharger
-            commentsList.innerHTML = '';
-            
-            // Charger depuis le localStorage à chaque fois
-            comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
-            
-            if (comments.length === 0) {
-                commentsList.innerHTML = '<div class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</div>';
-                return;
-            }
-            
-            // Trier par date (plus récent en premier)
-            comments.sort((a, b) => b.id - a.id);
-            
-            comments.forEach(comment => {
-                const commentElement = document.createElement('div');
-                commentElement.className = 'comment-item';
-                
-                let starsHtml = '';
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= comment.rating) {
-                        starsHtml += '<i class="fas fa-star" style="color: #ffc107; font-size: 0.9rem;"></i>';
-                    } else {
-                        starsHtml += '<i class="far fa-star" style="color: #ffc107; font-size: 0.9rem;"></i>';
+            // Rétablir le scroll smooth normal
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks) {
+                            navLinks.classList.remove('active');
+                        }
                     }
-                }
-                
-                commentElement.innerHTML = `
-                    <div class="comment-header">
-                        <div class="comment-author">${comment.name}</div>
-                        <div class="comment-date">${comment.date} à ${comment.time}</div>
-                    </div>
-                    ${comment.rating > 0 ? `<div class="comment-rating">${starsHtml}</div>` : ''}
-                    <div class="comment-text">${comment.text}</div>
-                `;
-                
-                commentsList.appendChild(commentElement);
+                });
             });
         }
+    }
+    
+    // Vérifier la taille de l'écran
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+}
 
-        // Charger les commentaires au chargement de la page
-        window.addEventListener('DOMContentLoaded', () => {
+// Gestion des commentaires
+const commentBtn = document.getElementById('commentBtn');
+const commentModal = document.getElementById('commentModal');
+const commentClose = document.getElementById('commentClose');
+const commentForm = document.getElementById('commentForm');
+const commentsList = document.getElementById('commentsList');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+const ratingStars = document.querySelectorAll('.rating-input i');
+
+// Tableau pour stocker les commentaires
+let comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
+
+// Ouvrir le modal
+commentBtn.addEventListener('click', () => {
+    commentModal.classList.add('active');
+    loadComments();
+});
+
+// Fermer le modal
+commentClose.addEventListener('click', () => {
+    commentModal.classList.remove('active');
+});
+
+// Fermer le modal en cliquant à l'extérieur
+commentModal.addEventListener('click', (e) => {
+    if (e.target === commentModal) {
+        commentModal.classList.remove('active');
+    }
+});
+
+// Gestion des onglets
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        
+        if (tabId === 'comments-tab') {
             loadComments();
-        });</script>
+        }
+    });
+});
+
+// Système de notation
+ratingStars.forEach(star => {
+    star.addEventListener('click', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        document.getElementById('commentRating').value = rating;
+        
+        ratingStars.forEach((s, index) => {
+            if (index < rating) {
+                s.classList.remove('far');
+                s.classList.add('fas');
+            } else {
+                s.classList.remove('fas');
+                s.classList.add('far');
+            }
+        });
+    });
+    
+    star.addEventListener('mouseover', () => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        ratingStars.forEach((s, index) => {
+            if (index < rating) {
+                s.classList.add('fas');
+                s.classList.remove('far');
+            }
+        });
+    });
+    
+    star.addEventListener('mouseout', () => {
+        const currentRating = parseInt(document.getElementById('commentRating').value);
+        ratingStars.forEach((s, index) => {
+            if (index >= currentRating) {
+                s.classList.remove('fas');
+                s.classList.add('far');
+            }
+        });
+    });
+});
+
+// Soumission du formulaire de commentaire
+commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('commentName').value;
+    const email = document.getElementById('commentEmail').value;
+    const text = document.getElementById('commentText').value;
+    const rating = parseInt(document.getElementById('commentRating').value);
+    
+    if (!name.trim() || !email.trim() || !text.trim()) {
+        alert('Veuillez remplir tous les champs obligatoires.');
+        return;
+    }
+    
+    const newComment = {
+        id: Date.now(),
+        name: name,
+        email: email,
+        text: text,
+        rating: rating,
+        date: new Date().toLocaleDateString('fr-FR'),
+        time: new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'})
+    };
+    
+    comments.unshift(newComment);
+    localStorage.setItem('elitePrestationsComments', JSON.stringify(comments));
+    
+    commentForm.reset();
+    document.getElementById('commentRating').value = 0;
+    ratingStars.forEach(star => {
+        star.classList.remove('fas');
+        star.classList.add('far');
+    });
+    
+    loadComments();
+    alert('Merci pour votre commentaire ! Il a été publié avec succès.');
+    
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabContents.forEach(c => c.classList.remove('active'));
+    document.querySelector('[data-tab="comments-tab"]').classList.add('active');
+    document.getElementById('comments-tab').classList.add('active');
+    
+    setTimeout(() => {
+        loadComments();
+    }, 100);
+});
+
+// Charger et afficher les commentaires
+function loadComments() {
+    commentsList.innerHTML = '';
+    
+    comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
+    
+    if (comments.length === 0) {
+        commentsList.innerHTML = '<div class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</div>';
+        return;
+    }
+    
+    comments.sort((a, b) => b.id - a.id);
+    
+    comments.forEach(comment => {
+        const commentElement = document.createElement('div');
+        commentElement.className = 'comment-item';
+        
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= comment.rating) {
+                starsHtml += '<i class="fas fa-star" style="color: #ffc107; font-size: 0.9rem;"></i>';
+            } else {
+                starsHtml += '<i class="far fa-star" style="color: #ffc107; font-size: 0.9rem;"></i>';
+            }
+        }
+        
+        commentElement.innerHTML = `
+            <div class="comment-header">
+                <div class="comment-author">${comment.name}</div>
+                <div class="comment-date">${comment.date} à ${comment.time}</div>
+            </div>
+            ${comment.rating > 0 ? `<div class="comment-rating">${starsHtml}</div>` : ''}
+            <div class="comment-text">${comment.text}</div>
+        `;
+        
+        commentsList.appendChild(commentElement);
+    });
+}
+
+// Charger les commentaires au chargement
+window.addEventListener('DOMContentLoaded', () => {
+    loadComments();
+});
+</script>
+</body>
+</html>
