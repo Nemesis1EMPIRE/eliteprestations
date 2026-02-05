@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="google-site-verification" content="beie_Kl8KbKOUKTOClkAvA6jQi-GR22CUvpICwKghzI" />
     
-<style>/* Splash Screen Styles - SIMPLIFIÉ */
+<style>
+/* Splash Screen Styles - SIMPLIFIÉ */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -996,6 +997,338 @@
             display: block;
         }
         
+        /* STYLES SPÉCIFIQUES AU QUESTIONNAIRE ÉMOTIONNEL */
+        .questionnaire-section {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+        
+        .questionnaire-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--secondary);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .questionnaire-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .questionnaire-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .questionnaire-header .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 0;
+        }
+        
+        .question-group {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .question-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .question-title i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .emoji-rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .emoji-btn {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            transition: var(--transition);
+            opacity: 0.5;
+        }
+        
+        .emoji-btn.selected {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        .emoji-btn:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        
+        .rating-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .rating-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .rating-question {
+            font-weight: 500;
+        }
+        
+        .rating-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .rating-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .rating-option.selected .rating-circle {
+            background: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+        }
+        
+        .rating-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 15px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .checkbox-item:hover {
+            background: var(--light-gray);
+        }
+        
+        .checkbox-item.selected {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .checkbox-item input {
+            display: none;
+        }
+        
+        .custom-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        
+        .scale-10 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .scale-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .scale-options {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .scale-option {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .scale-option.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .scale-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .textarea-group textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            font-size: 1rem;
+            resize: vertical;
+        }
+        
+        .checkbox-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        /* Bouton flottant Questionnaire */
+        .fab-questionnaire-btn {
+            position: fixed;
+            bottom: 140px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .fab-questionnaire-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Modal du questionnaire */
+        .questionnaire-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+        }
+        
+        .questionnaire-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .questionnaire-modal-content {
+            background: var(--secondary);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 0;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .questionnaire-modal-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            color: var(--secondary);
+            text-align: center;
+            position: relative;
+        }
+        
+        .questionnaire-modal-header h3 {
+            margin: 0;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        
+        .questionnaire-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .questionnaire-close:hover {
+            transform: scale(1.2);
+        }
+        
         /* Responsive Design - MOBILE FIRST */
         @media (min-width: 769px) {
             /* Rétablir l'ancien style pour desktop */
@@ -1079,6 +1412,10 @@
                 bottom: 25px;
             }
             
+            .fab-questionnaire-btn {
+                bottom: 90px;
+            }
+            
             /* Hero section desktop */
             .hero {
                 height: 100vh;
@@ -1095,6 +1432,19 @@
             
             .hero p {
                 font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+            
+            /* Questionnaire desktop */
+            .questionnaire-container {
+                padding: 50px;
+            }
+            
+            .rating-item {
+                flex-direction: row;
+            }
+            
+            .rating-options {
+                gap: 20px;
             }
         }
         
@@ -1132,7 +1482,16 @@
                 font-size: 1.2rem;
             }
             
-            .comment-modal {
+            .fab-questionnaire-btn {
+                bottom: 145px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .comment-modal,
+            .questionnaire-modal {
                 padding: 10px;
             }
             
@@ -1187,6 +1546,64 @@
             .btn {
                 padding: 10px 20px;
                 font-size: 0.85rem;
+            }
+            
+            /* Questionnaire mobile */
+            .questionnaire-container {
+                padding: 20px;
+            }
+            
+            .question-group {
+                padding: 15px;
+            }
+            
+            .rating-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .rating-options {
+                align-self: stretch;
+                justify-content: space-between;
+            }
+            
+            .emoji-rating {
+                gap: 5px;
+            }
+            
+            .emoji-btn {
+                font-size: 1.5rem;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .scale-10 {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .scale-options {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        
+        /* Mode paysage mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .fab-questionnaire-btn {
+                bottom: 100px;
+            }
+            
+            .fab-comment-btn {
+                bottom: 60px;
+            }
+            
+            .questionnaire-modal-content {
+                max-height: 80vh;
             }
         }
 </style></head>
@@ -1705,6 +2122,11 @@
         <i class="fas fa-comment"></i>
     </div>
 
+    <!-- Bouton flottant Questionnaire Émotionnel -->
+    <div class="fab-questionnaire-btn" id="questionnaireBtn">
+        <i class="fas fa-heart"></i>
+    </div>
+
     <!-- Modal de commentaires -->
     <div class="comment-modal" id="commentModal">
         <div class="comment-modal-content">
@@ -1756,6 +2178,249 @@
                         <div class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal du Questionnaire Émotionnel -->
+    <div class="questionnaire-modal" id="questionnaireModal">
+        <div class="questionnaire-modal-content">
+            <div class="questionnaire-modal-header">
+                <h3>✨ Questionnaire Émotionnel de Satisfaction – Élite Prestations</h3>
+                <button class="questionnaire-close" id="questionnaireClose">&times;</button>
+                <p class="subtitle">Chez Élite Prestations, nous ne livrons pas seulement un service, nous créons une expérience. Votre ressenti est notre plus grande richesse.</p>
+            </div>
+            
+            <div class="questionnaire-container">
+                <form id="questionnaireForm">
+                    <!-- SECTION 1 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-star"></i>
+                            <span>🌟 1. Votre expérience globale</span>
+                        </div>
+                        <p>Comment vous êtes-vous senti(e) après notre prestation ?</p>
+                        <div class="emoji-rating" id="experienceEmoji">
+                            <button type="button" class="emoji-btn" data-value="Émerveillé(e)">😍</button>
+                            <button type="button" class="emoji-btn" data-value="Très satisfait(e)">😊</button>
+                            <button type="button" class="emoji-btn" data-value="Satisfait(e)">🙂</button>
+                            <button type="button" class="emoji-btn" data-value="Mitigé(e)">😐</button>
+                            <button type="button" class="emoji-btn" data-value="Déçu(e)">😞</button>
+                        </div>
+                        <input type="hidden" id="experienceFeeling" name="experienceFeeling">
+                        
+                        <p style="margin-top: 20px;">Cette expérience a-t-elle été à la hauteur de vos attentes ?</p>
+                        <div class="checkbox-group" id="expectationsGroup">
+                            <div class="checkbox-item" data-value="Au-delà de mes attentes">
+                                <span>Au-delà de mes attentes</span>
+                            </div>
+                            <div class="checkbox-item" data-value="Conforme à mes attentes">
+                                <span>Conforme à mes attentes</span>
+                            </div>
+                            <div class="checkbox-item" data-value="En dessous de mes attentes">
+                                <span>En dessous de mes attentes</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="expectations" name="expectations">
+                    </div>
+                    
+                    <!-- SECTION 2 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-gem"></i>
+                            <span>💎 2. Échelle émotionnelle de la prestation</span>
+                        </div>
+                        <p>Pour chaque affirmation, indiquez votre niveau d'accord :<br>
+                        <small>Échelle émotionnelle : 1️⃣ Pas du tout | 2️⃣ Peu | 3️⃣ Moyennement | 4️⃣ Beaucoup | 5️⃣ Totalement</small></p>
+                        
+                        <div class="rating-scale">
+                            <div class="rating-item">
+                                <span class="rating-question">Je me suis senti(e) accueilli(e) avec considération et élégance</span>
+                                <div class="rating-options" data-question="welcome">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-item">
+                                <span class="rating-question">La team Élite m'a inspiré confiance dès les premiers échanges</span>
+                                <div class="rating-options" data-question="trust">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-item">
+                                <span class="rating-question">Le personnel a incarné l'excellence et le professionnalisme</span>
+                                <div class="rating-options" data-question="professionalism">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-item">
+                                <span class="rating-question">Chaque détail de la prestation m'a fait sentir important(e)</span>
+                                <div class="rating-options" data-question="details">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-item">
+                                <span class="rating-question">J'ai ressenti une réelle maîtrise et une organisation fluide</span>
+                                <div class="rating-options" data-question="organization">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-item">
+                                <span class="rating-question">L'expérience Élite a apporté une valeur émotionnelle à mon événement</span>
+                                <div class="rating-options" data-question="emotionalValue">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 3 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-crown"></i>
+                            <span>👑 3. Image & perception de la marque</span>
+                        </div>
+                        <p>Après cette prestation, Élite Prestations représente pour vous :</p>
+                        <div class="checkbox-group" id="brandPerceptionGroup">
+                            <div class="checkbox-item" data-value="Une agence d'exception">
+                                <span>Une agence d'exception</span>
+                            </div>
+                            <div class="checkbox-item" data-value="Un partenaire de confiance">
+                                <span>Un partenaire de confiance</span>
+                            </div>
+                            <div class="checkbox-item" data-value="Une référence événementielle">
+                                <span>Une référence événementielle</span>
+                            </div>
+                            <div class="checkbox-item" data-value="Une expérience mémorable">
+                                <span>Une expérience mémorable</span>
+                            </div>
+                            <div class="checkbox-item" data-value="autre">
+                                <span>Autre :</span>
+                                <input type="text" class="custom-input" id="otherBrand" placeholder="Précisez...">
+                            </div>
+                        </div>
+                        <input type="hidden" id="brandPerception" name="brandPerception">
+                        
+                        <p style="margin-top: 20px;">Sur une échelle de 1 à 10, quelle est votre émotion globale ressentie ?</p>
+                        <div class="scale-10">
+                            <div class="scale-number">10</div>
+                            <div class="scale-options" id="globalEmotionScale">
+                                <div class="scale-option" data-value="10"></div>
+                                <div class="scale-option" data-value="9"></div>
+                                <div class="scale-option" data-value="8"></div>
+                                <div class="scale-option" data-value="7"></div>
+                                <div class="scale-option" data-value="6"></div>
+                                <div class="scale-option" data-value="5"></div>
+                                <div class="scale-option" data-value="4"></div>
+                                <div class="scale-option" data-value="3"></div>
+                                <div class="scale-option" data-value="2"></div>
+                                <div class="scale-option" data-value="1"></div>
+                            </div>
+                            <div class="scale-number">1</div>
+                        </div>
+                        <input type="hidden" id="globalEmotion" name="globalEmotion">
+                    </div>
+                    
+                    <!-- SECTION 4 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-compass"></i>
+                            <span>🧭 4. Regard constructif</span>
+                        </div>
+                        <p>Qu'est-ce qui, selon vous, pourrait sublimer davantage l'expérience Élite ?</p>
+                        <div class="textarea-group">
+                            <textarea id="improvementSuggestions" name="improvementSuggestions" placeholder="Votre suggestion..."></textarea>
+                        </div>
+                        
+                        <p style="margin-top: 20px;">Y a-t-il un moment précis qui vous a particulièrement marqué(e) ?</p>
+                        <div class="textarea-group">
+                            <textarea id="memorableMoment" name="memorableMoment" placeholder="Décrivez ce moment mémorable..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 5 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-comment"></i>
+                            <span>💬 5. Témoignage émotionnel (VIP)</span>
+                        </div>
+                        <p>En une phrase, comment décririez-vous votre expérience avec Élite Prestations ?</p>
+                        <div class="textarea-group">
+                            <textarea id="testimonial" name="testimonial" placeholder="Votre témoignage en une phrase..." required></textarea>
+                        </div>
+                        
+                        <p style="margin-top: 20px;">Accepteriez-vous que ce témoignage soit partagé (site, réseaux sociaux, supports premium) ?</p>
+                        <div class="checkbox-row">
+                            <div class="checkbox-item" data-value="Oui">
+                                <span>Oui</span>
+                            </div>
+                            <div class="checkbox-item" data-value="Non">
+                                <span>Non</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="sharePermission" name="sharePermission" value="Non">
+                    </div>
+                    
+                    <!-- SECTION 6 -->
+                    <div class="question-group">
+                        <div class="question-title">
+                            <i class="fas fa-sparkles"></i>
+                            <span>✨ 6. Mot de clôture</span>
+                        </div>
+                        <p>Un message personnel à la team Élite :</p>
+                        <div class="textarea-group">
+                            <textarea id="personalMessage" name="personalMessage" placeholder="Votre message pour notre équipe..."></textarea>
+                        </div>
+                        
+                        <p class="form-note">Merci pour votre confiance.<br>Élite Prestations, Quand l'excellence devient une émotion.</p>
+                    </div>
+                    
+                    <!-- Informations client -->
+                    <div class="question-group">
+                        <h4>Vos informations (optionnelles)</h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clientName" placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="clientEmail" placeholder="Votre email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clientPhone" placeholder="Votre téléphone">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 30px;">
+                        <i class="fab fa-whatsapp"></i> Envoyer le questionnaire sur WhatsApp
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -1826,6 +2491,9 @@ ${message}
     
     // Système de navigation mobile
     setupMobileNavigation();
+    
+    // Initialiser le questionnaire
+    initQuestionnaire();
 });
 
 // Menu Toggle (pour desktop)
@@ -2111,6 +2779,257 @@ function loadComments() {
         
         commentsList.appendChild(commentElement);
     });
+}
+
+// Initialiser le questionnaire émotionnel
+function initQuestionnaire() {
+    const questionnaireBtn = document.getElementById('questionnaireBtn');
+    const questionnaireModal = document.getElementById('questionnaireModal');
+    const questionnaireClose = document.getElementById('questionnaireClose');
+    const questionnaireForm = document.getElementById('questionnaireForm');
+    
+    // Ouvrir le modal du questionnaire
+    questionnaireBtn.addEventListener('click', () => {
+        questionnaireModal.classList.add('active');
+    });
+    
+    // Fermer le modal du questionnaire
+    questionnaireClose.addEventListener('click', () => {
+        questionnaireModal.classList.remove('active');
+    });
+    
+    // Fermer le modal en cliquant à l'extérieur
+    questionnaireModal.addEventListener('click', (e) => {
+        if (e.target === questionnaireModal) {
+            questionnaireModal.classList.remove('active');
+        }
+    });
+    
+    // Gestion des émojis pour la section 1
+    const emojiBtns = document.querySelectorAll('.emoji-btn');
+    emojiBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            emojiBtns.forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('experienceFeeling').value = this.getAttribute('data-value');
+        });
+    });
+    
+    // Gestion des cases à cocher pour les attentes
+    const expectationItems = document.querySelectorAll('#expectationsGroup .checkbox-item');
+    expectationItems.forEach(item => {
+        item.addEventListener('click', function() {
+            expectationItems.forEach(i => i.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('expectations').value = this.getAttribute('data-value');
+        });
+    });
+    
+    // Gestion des échelles de notation
+    const ratingOptions = document.querySelectorAll('.rating-option');
+    ratingOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const parent = this.closest('.rating-options');
+            parent.querySelectorAll('.rating-option').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+    
+    // Gestion des perceptions de marque (multiple choix)
+    const brandItems = document.querySelectorAll('#brandPerceptionGroup .checkbox-item');
+    let brandSelections = [];
+    
+    brandItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+            
+            if (value === 'autre') {
+                // Gérer le champ "autre" spécialement
+                this.classList.toggle('selected');
+                const otherInput = this.querySelector('input');
+                otherInput.style.display = this.classList.contains('selected') ? 'block' : 'none';
+                
+                if (this.classList.contains('selected')) {
+                    otherInput.focus();
+                }
+            } else {
+                this.classList.toggle('selected');
+            }
+            
+            // Mettre à jour les sélections
+            updateBrandSelections();
+        });
+    });
+    
+    function updateBrandSelections() {
+        brandSelections = [];
+        brandItems.forEach(item => {
+            if (item.classList.contains('selected')) {
+                const value = item.getAttribute('data-value');
+                if (value === 'autre') {
+                    const otherValue = item.querySelector('input').value;
+                    if (otherValue.trim()) {
+                        brandSelections.push(`Autre: ${otherValue}`);
+                    }
+                } else {
+                    brandSelections.push(value);
+                }
+            }
+        });
+        document.getElementById('brandPerception').value = brandSelections.join(', ');
+    }
+    
+    // Gestion de l'échelle de 1 à 10
+    const scaleOptions = document.querySelectorAll('.scale-option');
+    scaleOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            scaleOptions.forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('globalEmotion').value = this.getAttribute('data-value');
+        });
+    });
+    
+    // Gestion du partage du témoignage
+    const shareItems = document.querySelectorAll('.checkbox-row .checkbox-item');
+    shareItems.forEach(item => {
+        item.addEventListener('click', function() {
+            shareItems.forEach(i => i.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('sharePermission').value = this.getAttribute('data-value');
+        });
+    });
+    
+    // Soumission du formulaire de questionnaire
+    questionnaireForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Validation du témoignage
+        const testimonial = document.getElementById('testimonial').value;
+        if (!testimonial.trim()) {
+            alert('Veuillez remplir votre témoignage en une phrase.');
+            return;
+        }
+        
+        // Collecte des données
+        const clientName = document.getElementById('clientName').value || 'Non spécifié';
+        const clientEmail = document.getElementById('clientEmail').value || 'Non spécifié';
+        const clientPhone = document.getElementById('clientPhone').value || 'Non spécifié';
+        
+        const experienceFeeling = document.getElementById('experienceFeeling').value || 'Non spécifié';
+        const expectations = document.getElementById('expectations').value || 'Non spécifié';
+        
+        // Collecte des évaluations
+        const ratings = {};
+        document.querySelectorAll('.rating-options').forEach(group => {
+            const question = group.getAttribute('data-question');
+            const selected = group.querySelector('.rating-option.selected');
+            ratings[question] = selected ? selected.getAttribute('data-value') : 'Non spécifié';
+        });
+        
+        const brandPerception = document.getElementById('brandPerception').value || 'Non spécifié';
+        const globalEmotion = document.getElementById('globalEmotion').value || 'Non spécifié';
+        const improvementSuggestions = document.getElementById('improvementSuggestions').value || 'Non spécifié';
+        const memorableMoment = document.getElementById('memorableMoment').value || 'Non spécifié';
+        const sharePermission = document.getElementById('sharePermission').value || 'Non';
+        const personalMessage = document.getElementById('personalMessage').value || 'Non spécifié';
+        
+        // Construction du message formaté pour WhatsApp
+        const whatsappMessage = `
+✨ *QUESTIONNAIRE ÉMOTIONNEL DE SATISFACTION - ÉLITE PRESTATIONS*
+
+*INFORMATIONS CLIENT*
+👤 Nom: ${clientName}
+📧 Email: ${clientEmail}
+📱 Téléphone: ${clientPhone}
+
+🌟 *1. EXPÉRIENCE GLOBALE*
+Ressenti: ${experienceFeeling}
+Attentes: ${expectations}
+
+💎 *2. ÉCHELLE ÉMOTIONNELLE (1-5)*
+Accueil élégant: ${ratings.welcome}/5
+Confiance inspirée: ${ratings.trust}/5
+Professionnalisme: ${ratings.professionalism}/5
+Importance des détails: ${ratings.details}/5
+Maîtrise & organisation: ${ratings.organization}/5
+Valeur émotionnelle: ${ratings.emotionalValue}/5
+
+👑 *3. IMAGE & PERCEPTION*
+Perception: ${brandPerception}
+Émotion globale: ${globalEmotion}/10
+
+🧭 *4. REGARD CONSTRUCTIF*
+Améliorations suggérées: ${improvementSuggestions}
+Moment mémorable: ${memorableMoment}
+
+💬 *5. TÉMOIGNAGE ÉMOTIONNEL*
+"${testimonial}"
+Partage autorisé: ${sharePermission}
+
+✨ *6. MOT DE CLÔTURE*
+Message à l'équipe: ${personalMessage}
+
+*📊 SCORE MOYEN:* ${calculateAverageScore(ratings)}/5
+*📅 Date:* ${new Date().toLocaleString('fr-FR')}
+*🔗 Source:* Site web Elite Prestations
+
+_Élite Prestations - Quand l'excellence devient une émotion_
+        `.trim();
+        
+        // Numéro WhatsApp
+        const phoneNumber = "24162391121";
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        // Ouvrir WhatsApp
+        window.open(whatsappURL, '_blank');
+        
+        // Réinitialiser le formulaire
+        questionnaireForm.reset();
+        resetQuestionnaireUI();
+        
+        // Fermer le modal
+        questionnaireModal.classList.remove('active');
+        
+        // Message de confirmation
+        alert('✅ Questionnaire envoyé! Redirection vers WhatsApp...\n\nMerci pour votre précieux retour d\'expérience.');
+    });
+    
+    // Fonction pour calculer le score moyen
+    function calculateAverageScore(ratings) {
+        const values = Object.values(ratings).filter(v => v !== 'Non spécifié').map(v => parseInt(v));
+        if (values.length === 0) return 'N/A';
+        const sum = values.reduce((a, b) => a + b, 0);
+        return (sum / values.length).toFixed(1);
+    }
+    
+    // Fonction pour réinitialiser l'interface du questionnaire
+    function resetQuestionnaireUI() {
+        // Réinitialiser les émojis
+        document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('selected'));
+        
+        // Réinitialiser les cases à cocher
+        document.querySelectorAll('.checkbox-item').forEach(item => item.classList.remove('selected'));
+        
+        // Réinitialiser les échelles de notation
+        document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+        
+        // Réinitialiser l'échelle 1-10
+        document.querySelectorAll('.scale-option').forEach(option => option.classList.remove('selected'));
+        
+        // Réinitialiser les champs cachés
+        document.getElementById('experienceFeeling').value = '';
+        document.getElementById('expectations').value = '';
+        document.getElementById('brandPerception').value = '';
+        document.getElementById('globalEmotion').value = '';
+        document.getElementById('sharePermission').value = 'Non';
+        
+        // Cacher le champ "autre"
+        document.querySelectorAll('#brandPerceptionGroup input[type="text"]').forEach(input => {
+            input.style.display = 'none';
+            input.value = '';
+        });
+    }
 }
 
 // Charger les commentaires au chargement
