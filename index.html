@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élite Prestations | Votre Agence Événementielle au Gabon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="google-site-verification" content="beie_Kl8KbKOUKTOClkAvA6jQi-GR22CUvpICwKghzI" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #ffffff;
+            --accent: #2c2c2c;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gold: #c9a84c;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--primary);
+            background: var(--secondary);
+            overflow-x: hidden;
+            opacity: 0;
+            animation: bodyFadeIn 0.6s ease forwards 1.8s;
+        }
+
+        @keyframes bodyFadeIn {
+            to { opacity: 1; }
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4%;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 18px;
+            line-height: 1.25;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: 2px solid var(--primary);
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: clamp(0.8rem, 2.2vw, 0.9rem);
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border-color: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #25D366;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--primary);
+        }
+
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* ===== SPLASH SCREEN ===== */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        #splash-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .splash-content {
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .main-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .elite {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 0;
+            color: white;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+
+        .prestations {
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            font-weight: 600;
+            margin-top: 8px;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 300;
+            margin-top: 30px;
+            color: #ccc;
+            letter-spacing: 2px;
+        }
+
+        /* ===== HEADER DESKTOP ===== */
+        header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        header.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        /* ===== BOTTOM NAVBAR MOBILE ===== */
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--secondary);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--accent);
+            flex: 1;
+            padding: 6px 5px;
+            transition: var(--transition);
+            border-radius: 8px;
+            margin: 0 2px;
+            position: relative;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .nav-item i {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .nav-item span {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== PAGE SYSTEM ===== */
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('assets/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary);
+            padding: 100px 15px 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: clamp(2rem, 7vw, 3.8rem);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+            color: #eee;
+        }
+
+        .hero .btn-gold {
+            padding: 16px 40px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        #services {
+            background: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--light-gray);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+        }
+
+        .service-tag {
+            background: var(--light-gray);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 0;
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+            font-weight: 600;
+            border: 1px solid var(--accent);
+            white-space: nowrap;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+            color: #555;
+        }
+
+        .service-features li:before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .service-cta {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        /* ===== SECTION ACCOMPAGNEMENT (NOUVELLE) ===== */
+        .accompagnement-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .accompagnement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .accompagnement-card {
+            background: var(--secondary);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .accompagnement-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .accompagnement-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .accompagnement-card:hover .accompagnement-img {
+            filter: grayscale(0%);
+        }
+
+        .accompagnement-img .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--primary);
+            padding: 5px 15px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .accompagnement-content {
+            padding: 25px;
+        }
+
+        .accompagnement-content h3 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .accompagnement-content h3 i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .accompagnement-content ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .accompagnement-content ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: #555;
+        }
+
+        .accompagnement-content ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 0;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--gold);
+        }
+
+        /* ===== ABOUT ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img {
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            order: -1;
+            border-radius: 0;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: var(--secondary);
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            white-space: nowrap;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+            filter: grayscale(0%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 15px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .gallery-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gold);
+            color: var(--primary);
+            padding: 4px 12px;
+            font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            background: var(--primary);
+            color: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 2px solid var(--gold);
+        }
+
+        .contact-form {
+            background: var(--secondary);
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 0;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            transition: var(--transition);
+            background: var(--secondary);
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 60px 0 100px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 2vw, 0.9rem);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--primary);
+            transform: translateY(-3px);
+            border-color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: #bbb;
+        }
+
+        /* ===== FAB BUTTONS ===== */
+        .fab-comment-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            transition: var(--transition);
+            border: 2px solid var(--gold);
+        }
+
+        .fab-comment-btn:hover {
+            background: var(--gold);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .fab-questionnaire-btn {
+            position: fixed;
+            bottom: 150px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #c9a84c 0%, #a8872b 100%);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(201, 168, 76, 0.4);
+            transition: var(--transition);
+            border: none;
+        }
+
+        .fab-questionnaire-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.6);
+        }
+
+        /* ===== MODALS ===== */
+        .comment-modal,
+        .questionnaire-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+        }
+
+        .comment-modal.active,
+        .questionnaire-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .comment-modal-content,
+        .questionnaire-modal-content {
+            background: var(--secondary);
+            width: 100%;
+            max-width: 500px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gold);
+        }
+
+        .comment-modal-header,
+        .questionnaire-modal-header {
+            padding: 20px;
+            background: var(--primary);
+            color: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .comment-modal-header h3,
+        .questionnaire-modal-header h3 {
+            margin: 0;
+            color: var(--secondary);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+
+        .comment-close,
+        .questionnaire-close {
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .comment-close:hover,
+        .questionnaire-close:hover {
+            transform: scale(1.2);
+            color: var(--gold);
+        }
+
+        .comment-modal-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            background: var(--secondary);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            border-bottom: 3px solid var(--gold);
+            color: var(--primary);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: var(--light-gray);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .comment-form-container {
+            padding: 25px;
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 8px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .rating-input i {
+            color: #ddd;
+            transition: var(--transition);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .rating-input i:hover {
+            color: var(--gold);
+        }
+
+        .rating-input i.fas {
+            color: var(--gold);
+        }
+
+        .comments-section {
+            padding: 0 25px 25px;
+        }
+
+        .comments-section h4 {
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .comments-list {
+            max-height: 280px;
+            overflow-y: auto;
+            margin-bottom: 18px;
+        }
+
+        .comment-item {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: var(--light);
+            border-left: 4px solid var(--gold);
+        }
+
+        .comment-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            gap: 5px;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .comment-rating {
+            margin-bottom: 8px;
+        }
+
+        .comment-text {
+            line-height: 1.5;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+        }
+
+        .no-comments {
+            text-align: center;
+            color: var(--gray);
+            font-style: italic;
+            padding: 20px;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+        }
+
+        /* ===== QUESTIONNAIRE STYLES ===== */
+        .questionnaire-section {
+            background: var(--light);
+            padding: 60px 0;
+        }
+
+        .questionnaire-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--secondary);
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--light-gray);
+        }
+
+        .questionnaire-modal-content {
+            max-width: 800px;
+        }
+
+        .questionnaire-modal-header h3 {
+            font-size: 1.3rem;
+        }
+
+        .questionnaire-modal-header .subtitle {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .question-group {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: var(--light);
+            border-left: 4px solid var(--gold);
+        }
+
+        .question-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .question-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .emoji-rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .emoji-btn {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            transition: var(--transition);
+            opacity: 0.5;
+        }
+
+        .emoji-btn.selected {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .emoji-btn:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .rating-scale {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .rating-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+        }
+
+        .rating-question {
+            font-weight: 500;
+        }
+
+        .rating-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .rating-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .rating-option.selected .rating-circle {
+            background: var(--gold);
+            color: var(--primary);
+            border-color: var(--gold);
+        }
+
+        .rating-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 15px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .checkbox-item:hover {
+            background: var(--light-gray);
+        }
+
+        .checkbox-item.selected {
+            background: var(--gold);
+            color: var(--primary);
+            border-color: var(--gold);
+        }
+
+        .checkbox-item input {
+            display: none;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .scale-10 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--secondary);
+            border: 1px solid var(--light-gray);
+        }
+
+        .scale-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .scale-options {
+            display: flex;
+            gap: 5px;
+        }
+
+        .scale-option {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .scale-option.selected {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .scale-option:hover {
+            transform: scale(1.1);
+        }
+
+        .textarea-group textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .checkbox-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 769px) {
+            .bottom-navbar {
+                display: none;
+            }
+
+            header {
+                display: block;
+            }
+
+            .page {
+                display: block !important;
+            }
+
+            .fab-comment-btn {
+                bottom: 25px;
+            }
+
+            .fab-questionnaire-btn {
+                bottom: 95px;
+            }
+
+            .hero {
+                background-attachment: fixed;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-img {
+                order: 0;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rating-item {
+                flex-direction: row;
+            }
+
+            .rating-options {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 94%;
+                padding: 0 10px;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .gallery-grid,
+            .accompagnement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .portfolio-item {
+                height: 250px;
+            }
+
+            .service-img {
+                height: 180px;
+            }
+
+            .accompagnement-img {
+                height: 180px;
+            }
+
+            .fab-comment-btn {
+                bottom: 85px;
+                right: 18px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+
+            .fab-questionnaire-btn {
+                bottom: 155px;
+                right: 18px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+
+            .questionnaire-container {
+                padding: 20px;
+            }
+
+            .question-group {
+                padding: 15px;
+            }
+
+            .rating-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .rating-options {
+                align-self: stretch;
+                justify-content: space-between;
+            }
+
+            .emoji-rating {
+                gap: 5px;
+            }
+
+            .emoji-btn {
+                font-size: 1.5rem;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .scale-10 {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .scale-options {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            footer {
+                padding: 50px 0 90px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            .fab-questionnaire-btn {
+                bottom: 100px;
+            }
+
+            .fab-comment-btn {
+                bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="main-title">
+                <div class="elite">ELITE</div>
+                <div class="prestations">PRESTATIONS</div>
+            </div>
+            <div class="subtitle">Le Meilleur Pour Vous</div>
+        </div>
+    </div>
+
+    <!-- Header Desktop -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">ÉLITE <span>PRESTATIONS</span></a>
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="nav-link active" data-page="accueil">Accueil</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-page="portfolio">Réalisations</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">À propos</a></li>
+                    <li><a href="#gallery" class="nav-link" data-page="gallery">Galerie</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bottom Navbar Mobile -->
+    <nav class="bottom-navbar">
+        <a href="#accueil" class="nav-item active" data-page="accueil">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+        <a href="#portfolio" class="nav-item" data-page="portfolio">
+            <i class="fas fa-images"></i>
+            <span>Réalisations</span>
+        </a>
+        <a href="#about" class="nav-item" data-page="about">
+            <i class="fas fa-info-circle"></i>
+            <span>À propos</span>
+        </a>
+        <a href="#gallery" class="nav-item" data-page="gallery">
+            <i class="fas fa-camera"></i>
+            <span>Galerie</span>
+        </a>
+        <a href="#contact" class="nav-item" data-page="contact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- PAGE ACCUEIL -->
+    <div class="page active" id="accueil-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Élégance & Professionnalisme</h1>
+                    <p>Élite Prestation, l'excellence événementielle au Gabon. De la location de salle à l'organisation complète, nous créons des moments d'exception.</p>
+                    <a href="#contact" class="btn btn-gold" data-page="contact">Planifier mon événement</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2>Nos Services Complets</h2>
+                <div class="services-grid">
+                    <!-- Service 1 : Location de salle -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/SALLE.png');"></div>
+                        <div class="service-content">
+                            <h3>Location de Salle Événementielle</h3>
+                            <p>Une salle spacieuse et modulable d'une capacité de 200 places, idéale pour tous vos événements.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Mariages</span>
+                                <span class="service-tag">Séminaires</span>
+                                <span class="service-tag">Anniversaires</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Capacité : 200 personnes</li>
+                                <li>Espace modulable selon vos besoins</li>
+                                <li>Équipement de base inclus</li>
+                                <li>Localisation stratégique</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Réserver la salle</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 : Organisation de mariages -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/mariage.png');"></div>
+                        <div class="service-content">
+                            <h3>Organisation de Mariages</h3>
+                            <p>Service complet ou à la carte pour un mariage personnalisé selon vos souhaits et votre budget.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Complet</span>
+                                <span class="service-tag">Sur mesure</span>
+                                <span class="service-tag">À la carte</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Matériel (sono, décoration, etc.)</li>
+                                <li>Service traiteur</li>
+                                <li>Photographie et vidéo</li>
+                                <li>Personnel dédié</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Organiser mon mariage</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 : Appartement meublé -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/709658739.jpg?k=5c9d4ce038179456a5e2cd6eb153e93061858c89cc11c59fafba28b97b2ac36e&o=');"></div>
+                        <div class="service-content">
+                            <h3>Appartement Meublé</h3>
+                            <p>Chambre nuptiale ou hébergement confortable avec toutes les commodités pour vos invités.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Chambre nuptiale</span>
+                                <span class="service-tag">Hébergement</span>
+                                <span class="service-tag">Confort</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Salon, chambre, douche, cuisine</li>
+                                <li>WiFi haut débit</li>
+                                <li>Accès sécurisé 24h/24</li>
+                                <li>Idéal pour mariages et séjours</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Réserver l'appartement</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 : Nettoyage -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/NETTOYAGE.png');"></div>
+                        <div class="service-content">
+                            <h3>Service de Nettoyage</h3>
+                            <p>Nettoyage professionnel avant et après vos événements pour des espaces impeccables.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Avant événement</span>
+                                <span class="service-tag">Après événement</span>
+                                <span class="service-tag">Professionnel</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Nettoyage avant événement</li>
+                                <li>Nettoyage après événement</li>
+                                <li>Produits professionnels</li>
+                                <li>Équipe qualifiée</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Demander un devis</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 : Services professionnels -->
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/service.png');"></div>
+                        <div class="service-content">
+                            <h3>Services Professionnels</h3>
+                            <p>Accueil, protocole et restauration pour vos événements d'entreprise et culturels.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Entreprise</span>
+                                <span class="service-tag">Culturel</span>
+                                <span class="service-tag">Professionnel</span>
+                            </div>
+                            <ul class="service-features">
+                                <li>Protocole et accueil</li>
+                                <li>Service pause-café</li>
+                                <li>Service café pour enterrement</li>
+                                <li>Personnel qualifié</li>
+                            </ul>
+                            <div class="service-cta">
+                                <a href="#contact" class="btn btn-outline" data-page="contact">Personnaliser mon service</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== NOUVELLE SECTION ACCOMPAGNEMENT ========== -->
+        <section class="accompagnement-section" id="accompagnement">
+            <div class="container">
+                <h2>Accompagnement & Assistance</h2>
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Notre équipe vous accompagne à chaque étape, du transport à l'organisation complète, pour une expérience sans stress.</p>
+
+                <div class="accompagnement-grid">
+                    <!-- Carte 1 : Assistance Voyageurs -->
+                    <div class="accompagnement-card">
+                        <div class="accompagnement-img" style="background-image: url('assets/voiture.jpg');">
+                            <span class="badge">Transport & Accueil</span>
+                        </div>
+                        <div class="accompagnement-content">
+                            <h3><i class="fas fa-plane-arrival"></i> Assistance Voyageurs</h3>
+                            <p>Un service complet pour vos déplacements et l'accueil de vos invités, avec une équipe dédiée et professionnelle.</p>
+                            <ul>
+                                <li>Transport (bus, véhicules privés)</li>
+                                <li>Accueil à l'aéroport</li>
+                                <li>Accompagnement personnalisé</li>
+                                <li>Gestion des correspondances</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline" data-page="contact" style="width: 100%; margin-top: 10px;">Réserver l'assistance</a>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 : Organisation d'événements -->
+                    <div class="accompagnement-card">
+                        <div class="accompagnement-img" style="background-image: url('assets/ACCUEIL.jpg');">
+                            <span class="badge">Événementiel</span>
+                        </div>
+                        <div class="accompagnement-content">
+                            <h3><i class="fas fa-calendar-check"></i> Organisation d'Événements</h3>
+                            <p>De la conception à la réalisation, nous orchestrons chaque détail pour créer des moments inoubliables.</p>
+                            <ul>
+                                <li>Planification complète</li>
+                                <li>Coordination des prestataires</li>
+                                <li>Gestion logistique</li>
+                                <li>Supervision sur site</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline" data-page="contact" style="width: 100%; margin-top: 10px;">Planifier un événement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE PORTFOLIO -->
+    <div class="page" id="portfolio-page">
+        <section class="portfolio">
+            <div class="container">
+                <h2>Nos Réalisations</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Mariage Prestige</h3>
+                            <p>Organisation complète d'un mariage haut de gamme pour 150 invités</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/CONF.jpg" alt="Événement d'entreprise" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Séminaire Corporate</h3>
+                            <p>Organisation d'un séminaire d'entreprise avec protocole pour 200 participants</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/ANNIV.jpg" alt="Anniversaire" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Anniversaire Sur Mesure</h3>
+                            <p>Célébration d'anniversaire dans notre salle événementielle pour 80 personnes</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/AIRFRANCE.jpg" alt="Conférence Air France" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Conférence d'anniversaire</h3>
+                            <p>90 ans d'Air France</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/ACCUEIL.jpg" alt="Protocole" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Protocole</h3>
+                            <p>Organisation complète avec hotesses, barmen et sécurité</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="assets/PRIX.jpg" alt="Cérémonie de remise de prix" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Cérémonie de Prix</h3>
+                            <p>Gala de remise de prix avec dîner et animation pour 250 personnes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE ABOUT -->
+    <div class="page" id="about-page">
+        <section id="about">
+            <div class="container">
+                <h2>À Propos de Nous</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Élite Prestations, le meilleur pour vous!</h3>
+                        <p>Forte de plusieurs années d'expérience, Élite Prestations s'est imposée comme la référence en matière d'organisation événementielle au Gabon. Notre approche allie élégance, professionnalisme et attention aux détails.</p>
+                        <p>Nous comprenons l'importance de chaque événement dans votre vie, qu'il s'agisse d'un mariage, d'un séminaire professionnel ou d'une célébration familiale. C'est pourquoi nous nous engageons à rendre chaque moment unique et mémorable.</p>
+                        <p>Notre équipe pluridisciplinaire maîtrise tous les aspects de l'organisation événementielle, de la location d'espaces à l'accompagnement personnalisé, en passant par les services de transport et d'hébergement.</p>
+                        <a href="#contact" class="btn btn-gold" data-page="contact">Travaillons ensemble</a>
+                    </div>
+                    <div class="about-img">
+                        <img src="assets/about.jpg" alt="Équipe Élite Prestation">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE GALLERY -->
+    <div class="page" id="gallery-page">
+        <section class="gallery">
+            <div class="container">
+                <h2>Galerie Photos</h2>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="mariage">Mariages</button>
+                    <button class="filter-btn" data-filter="entreprise">Événements d'entreprise</button>
+                    <button class="filter-btn" data-filter="anniversaire">Anniversaires</button>
+                    <button class="filter-btn" data-filter="cocktail">Cocktails</button>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="mariage">
+                        <img src="assets/ELEGANT.jpg" alt="Mariage élégant" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Mariage Élégant</h3>
+                            <p>Cérémonie romantique avec décoration florale</p>
+                        </div>
+                        <div class="gallery-category">Mariage</div>
+                    </div>
+                    <div class="gallery-item" data-category="entreprise">
+                        <img src="assets/CONF.jpg" alt="Conférence d'entreprise" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Conférence Corporate</h3>
+                            <p>Séminaire professionnel avec équipement high-tech</p>
+                        </div>
+                        <div class="gallery-category">Entreprise</div>
+                    </div>
+                    <div class="gallery-item" data-category="anniversaire">
+                        <img src="assets/ANNIV.jpg" alt="Anniversaire festif" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Anniversaire Festif</h3>
+                            <p>Célébration avec décoration personnalisée</p>
+                        </div>
+                        <div class="gallery-category">Anniversaire</div>
+                    </div>
+                    <div class="gallery-item" data-category="cocktail">
+                        <img src="assets/ACCUEIL.jpg" alt="Cocktail d'entreprise" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Cocktail d'Entreprise</h3>
+                            <p>Réception avec service de qualité</p>
+                        </div>
+                        <div class="gallery-category">Cocktail</div>
+                    </div>
+                    <div class="gallery-item" data-category="mariage">
+                        <img src="assets/PRIX.jpg" alt="Dîner de gala" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Dîner de Gala</h3>
+                            <p>Soirée prestigieuse avec service traiteur</p>
+                        </div>
+                        <div class="gallery-category">Mariage</div>
+                    </div>
+                    <div class="gallery-item" data-category="entreprise">
+                        <img src="assets/AIRFRANCE.jpg" alt="Événement institutionnel" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Événement Institutionnel</h3>
+                            <p>Célébration des 90 ans d'Air France</p>
+                        </div>
+                        <div class="gallery-category">Entreprise</div>
+                    </div>
+                    <div class="gallery-item" data-category="cocktail">
+                        <img src="assets/service.png" alt="Réception cocktail" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Réception Cocktail</h3>
+                            <p>Service professionnel et ambiance chaleureuse</p>
+                        </div>
+                        <div class="gallery-category">Cocktail</div>
+                    </div>
+                    <div class="gallery-item" data-category="anniversaire">
+                        <img src="assets/mariage.png" alt="Fête familiale" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Fête Familiale</h3>
+                            <p>Célébration conviviale et personnalisée</p>
+                        </div>
+                        <div class="gallery-category">Anniversaire</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PAGE CONTACT -->
+    <div class="page" id="contact-page">
+        <section id="contact">
+            <div class="container">
+                <h2>Contactez-Nous</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><h3>Notre Adresse</h3><p>Libreville, Gabon</p></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div><h3>Téléphone</h3><p>+241 62 39 11 21</p></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><h3>Email</h3><p>eliteprestationpourvous@gmail.com</p></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div><h3>WhatsApp</h3><p>Contactez-nous directement via WhatsApp</p></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div><h3>Heures d'Ouverture</h3><p>Lun - Ven: 8h00 - 18h00<br>Samedi: 9h00 - 16h00<br>Dimanche: Sur rendez-vous</p></div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="whatsapp-form">
+                            <div class="form-group"><input type="text" class="form-control" id="name" placeholder="Votre nom" required></div>
+                            <div class="form-group"><input type="email" class="form-control" id="email" placeholder="Votre email" required></div>
+                            <div class="form-group"><input type="text" class="form-control" id="subject" placeholder="Sujet" required></div>
+                            <div class="form-group">
+                                <select class="form-control" id="service" required>
+                                    <option value="">Service intéressé</option>
+                                    <option value="Location de salle">Location de salle</option>
+                                    <option value="Organisation de mariage">Organisation de mariage</option>
+                                    <option value="Appartement meublé">Appartement meublé</option>
+                                    <option value="Service de nettoyage">Service de nettoyage</option>
+                                    <option value="Services professionnels">Services professionnels</option>
+                                    <option value="Assistance voyageurs">Assistance voyageurs</option>
+                                    <option value="Organisation d'événements">Organisation d'événements</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><textarea class="form-control" id="message" placeholder="Votre message" required></textarea></div>
+                            <button type="submit" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ÉLITE PRESTATION</h3>
+                    <p>Votre partenaire événementiel de confiance au Gabon pour des événements mémorables et réussis.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Accueil</a></li>
+                        <li><a href="#portfolio" class="nav-link" data-page="portfolio">Réalisations</a></li>
+                        <li><a href="#about" class="nav-link" data-page="about">À propos</a></li>
+                        <li><a href="#gallery" class="nav-link" data-page="gallery">Galerie</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Nos Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Location de salle</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Organisation de mariages</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Appartement meublé</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Services de nettoyage</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Assistance voyageurs</a></li>
+                        <li><a href="#accueil" class="nav-link" data-page="accueil">Organisation d'événements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous pour recevoir nos actualités et offres exclusives.</p>
+                    <form>
+                        <div class="form-group"><input type="email" class="form-control" placeholder="Votre email" required></div>
+                        <button type="submit" class="btn" style="background: var(--gold); color: var(--primary); border-color: var(--gold);">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Élite Prestations. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Boutons flottants -->
+    <div class="fab-comment-btn" id="commentBtn"><i class="fas fa-comment"></i></div>
+    <div class="fab-questionnaire-btn" id="questionnaireBtn"><i class="fas fa-heart"></i></div>
+
+    <!-- Modal Commentaires -->
+    <div class="comment-modal" id="commentModal">
+        <div class="comment-modal-content">
+            <div class="comment-modal-header">
+                <h3>Vos Commentaires</h3>
+                <button class="comment-close" id="commentClose">&times;</button>
+            </div>
+            <div class="comment-modal-tabs">
+                <button class="tab-btn active" data-tab="form-tab">Nouveau commentaire</button>
+                <button class="tab-btn" data-tab="comments-tab">Voir les commentaires</button>
+            </div>
+            <div class="tab-content active" id="form-tab">
+                <div class="comment-form-container">
+                    <form class="comment-form" id="commentForm">
+                        <div class="form-group"><input type="text" class="form-control" id="commentName" placeholder="Votre nom" required></div>
+                        <div class="form-group"><input type="email" class="form-control" id="commentEmail" placeholder="Votre email" required></div>
+                        <div class="form-group"><textarea class="form-control" id="commentText" placeholder="Votre commentaire..." required></textarea></div>
+                        <div class="form-group">
+                            <label for="commentRating">Note (optionnelle) :</label>
+                            <div class="rating-input">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="commentRating" value="0">
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Publier le commentaire</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-content" id="comments-tab">
+                <div class="comments-section" id="commentsSection">
+                    <h4>Commentaires des visiteurs</h4>
+                    <div class="comments-list" id="commentsList">
+                        <div class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Questionnaire -->
+    <div class="questionnaire-modal" id="questionnaireModal">
+        <div class="questionnaire-modal-content">
+            <div class="questionnaire-modal-header">
+                <h3>✨ Questionnaire Émotionnel de Satisfaction</h3>
+                <button class="questionnaire-close" id="questionnaireClose">&times;</button>
+                <p class="subtitle">Chez Élite Prestations, nous ne livrons pas seulement un service, nous créons une expérience.</p>
+            </div>
+            <div class="questionnaire-container">
+                <form id="questionnaireForm">
+                    <!-- SECTION 1 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-star"></i><span>🌟 1. Votre expérience globale</span></div>
+                        <p>Comment vous êtes-vous senti(e) après notre prestation ?</p>
+                        <div class="emoji-rating" id="experienceEmoji">
+                            <button type="button" class="emoji-btn" data-value="Émerveillé(e)">😍</button>
+                            <button type="button" class="emoji-btn" data-value="Très satisfait(e)">😊</button>
+                            <button type="button" class="emoji-btn" data-value="Satisfait(e)">🙂</button>
+                            <button type="button" class="emoji-btn" data-value="Mitigé(e)">😐</button>
+                            <button type="button" class="emoji-btn" data-value="Déçu(e)">😞</button>
+                        </div>
+                        <input type="hidden" id="experienceFeeling" name="experienceFeeling">
+                        <p style="margin-top: 20px;">Cette expérience a-t-elle été à la hauteur de vos attentes ?</p>
+                        <div class="checkbox-group" id="expectationsGroup">
+                            <div class="checkbox-item" data-value="Au-delà de mes attentes"><span>Au-delà de mes attentes</span></div>
+                            <div class="checkbox-item" data-value="Conforme à mes attentes"><span>Conforme à mes attentes</span></div>
+                            <div class="checkbox-item" data-value="En dessous de mes attentes"><span>En dessous de mes attentes</span></div>
+                        </div>
+                        <input type="hidden" id="expectations" name="expectations">
+                    </div>
+
+                    <!-- SECTION 2 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-gem"></i><span>💎 2. Échelle émotionnelle de la prestation</span></div>
+                        <p>Pour chaque affirmation, indiquez votre niveau d'accord :<br><small>Échelle : 1️⃣ Pas du tout | 2️⃣ Peu | 3️⃣ Moyennement | 4️⃣ Beaucoup | 5️⃣ Totalement</small></p>
+                        <div class="rating-scale">
+                            <div class="rating-item">
+                                <span class="rating-question">Je me suis senti(e) accueilli(e) avec considération et élégance</span>
+                                <div class="rating-options" data-question="welcome">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <span class="rating-question">La team Élite m'a inspiré confiance dès les premiers échanges</span>
+                                <div class="rating-options" data-question="trust">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <span class="rating-question">Le personnel a incarné l'excellence et le professionnalisme</span>
+                                <div class="rating-options" data-question="professionalism">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <span class="rating-question">Chaque détail de la prestation m'a fait sentir important(e)</span>
+                                <div class="rating-options" data-question="details">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <span class="rating-question">J'ai ressenti une réelle maîtrise et une organisation fluide</span>
+                                <div class="rating-options" data-question="organization">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                            <div class="rating-item">
+                                <span class="rating-question">L'expérience Élite a apporté une valeur émotionnelle à mon événement</span>
+                                <div class="rating-options" data-question="emotionalValue">
+                                    <div class="rating-option" data-value="1"><div class="rating-circle">1</div><span class="rating-label">Pas du tout</span></div>
+                                    <div class="rating-option" data-value="2"><div class="rating-circle">2</div><span class="rating-label">Peu</span></div>
+                                    <div class="rating-option" data-value="3"><div class="rating-circle">3</div><span class="rating-label">Moyen</span></div>
+                                    <div class="rating-option" data-value="4"><div class="rating-circle">4</div><span class="rating-label">Beaucoup</span></div>
+                                    <div class="rating-option" data-value="5"><div class="rating-circle">5</div><span class="rating-label">Totalement</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-crown"></i><span>👑 3. Image & perception de la marque</span></div>
+                        <p>Après cette prestation, Élite Prestations représente pour vous :</p>
+                        <div class="checkbox-group" id="brandPerceptionGroup">
+                            <div class="checkbox-item" data-value="Une agence d'exception"><span>Une agence d'exception</span></div>
+                            <div class="checkbox-item" data-value="Un partenaire de confiance"><span>Un partenaire de confiance</span></div>
+                            <div class="checkbox-item" data-value="Une référence événementielle"><span>Une référence événementielle</span></div>
+                            <div class="checkbox-item" data-value="Une expérience mémorable"><span>Une expérience mémorable</span></div>
+                            <div class="checkbox-item" data-value="autre"><span>Autre :</span><input type="text" class="custom-input" id="otherBrand" placeholder="Précisez..."></div>
+                        </div>
+                        <input type="hidden" id="brandPerception" name="brandPerception">
+                        <p style="margin-top: 20px;">Sur une échelle de 1 à 10, quelle est votre émotion globale ressentie ?</p>
+                        <div class="scale-10">
+                            <div class="scale-number">10</div>
+                            <div class="scale-options" id="globalEmotionScale">
+                                <div class="scale-option" data-value="10"></div>
+                                <div class="scale-option" data-value="9"></div>
+                                <div class="scale-option" data-value="8"></div>
+                                <div class="scale-option" data-value="7"></div>
+                                <div class="scale-option" data-value="6"></div>
+                                <div class="scale-option" data-value="5"></div>
+                                <div class="scale-option" data-value="4"></div>
+                                <div class="scale-option" data-value="3"></div>
+                                <div class="scale-option" data-value="2"></div>
+                                <div class="scale-option" data-value="1"></div>
+                            </div>
+                            <div class="scale-number">1</div>
+                        </div>
+                        <input type="hidden" id="globalEmotion" name="globalEmotion">
+                    </div>
+
+                    <!-- SECTION 4 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-compass"></i><span>🧭 4. Regard constructif</span></div>
+                        <p>Qu'est-ce qui, selon vous, pourrait sublimer davantage l'expérience Élite ?</p>
+                        <div class="textarea-group"><textarea id="improvementSuggestions" name="improvementSuggestions" placeholder="Votre suggestion..."></textarea></div>
+                        <p style="margin-top: 20px;">Y a-t-il un moment précis qui vous a particulièrement marqué(e) ?</p>
+                        <div class="textarea-group"><textarea id="memorableMoment" name="memorableMoment" placeholder="Décrivez ce moment mémorable..."></textarea></div>
+                    </div>
+
+                    <!-- SECTION 5 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-comment"></i><span>💬 5. Témoignage émotionnel (VIP)</span></div>
+                        <p>En une phrase, comment décririez-vous votre expérience avec Élite Prestations ?</p>
+                        <div class="textarea-group"><textarea id="testimonial" name="testimonial" placeholder="Votre témoignage en une phrase..." required></textarea></div>
+                        <p style="margin-top: 20px;">Accepteriez-vous que ce témoignage soit partagé (site, réseaux sociaux, supports premium) ?</p>
+                        <div class="checkbox-row">
+                            <div class="checkbox-item" data-value="Oui"><span>Oui</span></div>
+                            <div class="checkbox-item" data-value="Non"><span>Non</span></div>
+                        </div>
+                        <input type="hidden" id="sharePermission" name="sharePermission" value="Non">
+                    </div>
+
+                    <!-- SECTION 6 -->
+                    <div class="question-group">
+                        <div class="question-title"><i class="fas fa-sparkles"></i><span>✨ 6. Mot de clôture</span></div>
+                        <p>Un message personnel à la team Élite :</p>
+                        <div class="textarea-group"><textarea id="personalMessage" name="personalMessage" placeholder="Votre message pour notre équipe..."></textarea></div>
+                        <p class="form-note">Merci pour votre confiance.<br>Élite Prestations, Quand l'excellence devient une émotion.</p>
+                    </div>
+
+                    <!-- Informations client -->
+                    <div class="question-group">
+                        <h4>Vos informations (optionnelles)</h4>
+                        <div class="form-group"><input type="text" class="form-control" id="clientName" placeholder="Votre nom"></div>
+                        <div class="form-group"><input type="email" class="form-control" id="clientEmail" placeholder="Votre email"></div>
+                        <div class="form-group"><input type="text" class="form-control" id="clientPhone" placeholder="Votre téléphone"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 30px;"><i class="fab fa-whatsapp"></i> Envoyer le questionnaire sur WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== SPLASH SCREEN =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splash-screen');
+            setTimeout(() => {
+                splashScreen.classList.add('fade-out');
+            }, 2000);
+
+            // ===== GALLERY FILTERING =====
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.getAttribute('data-filter');
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // ===== WHATSAPP FORM =====
+            document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                const phoneNumber = "24162391121";
+                const whatsappMessage = `
+    *📞 NOUVELLE DEMANDE - ÉLITE PRESTATIONS*
+
+    *👤 Nom complet:* ${name}
+    *📧 Email:* ${email}
+    *🎯 Sujet:* ${subject}
+    *🛎️ Service demandé:* ${service}
+    *💬 Message:*
+    ${message}
+
+    *📍 Source:* Site web Elite Prestations
+    *⏰ Date:* ${new Date().toLocaleString('fr-FR')}
+                `.trim();
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                window.open(whatsappURL, '_blank');
+                this.reset();
+                alert('✅ Formulaire envoyé! Redirection vers WhatsApp...');
+            });
+
+            // ===== MOBILE NAVIGATION =====
+            setupMobileNavigation();
+            initQuestionnaire();
+            loadComments();
+        });
+
+        // ===== MENU TOGGLE (Desktop) =====
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (header && window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else if (header) {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MOBILE NAVIGATION SYSTEM =====
+        function setupMobileNavigation() {
+            const navItems = document.querySelectorAll('.nav-item, .nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) targetPage.classList.add('active');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-page') === pageId) item.classList.add('active');
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) showPage(pageId);
+                });
+            });
+
+            document.querySelectorAll('.btn[data-page]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) showPage(pageId);
+                });
+            });
+        }
+
+        // ===== COMMENTS SYSTEM =====
+        const commentBtn = document.getElementById('commentBtn');
+        const commentModal = document.getElementById('commentModal');
+        const commentClose = document.getElementById('commentClose');
+        const commentForm = document.getElementById('commentForm');
+        const commentsList = document.getElementById('commentsList');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const ratingStars = document.querySelectorAll('.rating-input i');
+        let comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
+
+        commentBtn.addEventListener('click', () => {
+            commentModal.classList.add('active');
+            loadComments();
+        });
+
+        commentClose.addEventListener('click', () => commentModal.classList.remove('active'));
+        commentModal.addEventListener('click', (e) => {
+            if (e.target === commentModal) commentModal.classList.remove('active');
+        });
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+                if (tabId === 'comments-tab') loadComments();
+            });
+        });
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                document.getElementById('commentRating').value = rating;
+                ratingStars.forEach((s, index) => {
+                    if (index < rating) { s.classList.remove('far'); s.classList.add('fas'); }
+                    else { s.classList.remove('fas'); s.classList.add('far'); }
+                });
+            });
+            star.addEventListener('mouseover', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                ratingStars.forEach((s, index) => {
+                    if (index < rating) { s.classList.add('fas'); s.classList.remove('far'); }
+                });
+            });
+            star.addEventListener('mouseout', () => {
+                const currentRating = parseInt(document.getElementById('commentRating').value);
+                ratingStars.forEach((s, index) => {
+                    if (index >= currentRating) { s.classList.remove('fas'); s.classList.add('far'); }
+                });
+            });
+        });
+
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('commentName').value;
+            const email = document.getElementById('commentEmail').value;
+            const text = document.getElementById('commentText').value;
+            const rating = parseInt(document.getElementById('commentRating').value);
+            if (!name.trim() || !email.trim() || !text.trim()) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            const newComment = {
+                id: Date.now(),
+                name, email, text, rating,
+                date: new Date().toLocaleDateString('fr-FR'),
+                time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })
+            };
+            comments.unshift(newComment);
+            localStorage.setItem('elitePrestationsComments', JSON.stringify(comments));
+            commentForm.reset();
+            document.getElementById('commentRating').value = 0;
+            ratingStars.forEach(star => { star.classList.remove('fas'); star.classList.add('far'); });
+            loadComments();
+            alert('Merci pour votre commentaire ! Il a été publié avec succès.');
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            document.querySelector('[data-tab="comments-tab"]').classList.add('active');
+            document.getElementById('comments-tab').classList.add('active');
+        });
+
+        function loadComments() {
+            commentsList.innerHTML = '';
+            comments = JSON.parse(localStorage.getItem('elitePrestationsComments')) || [];
+            if (comments.length === 0) {
+                commentsList.innerHTML = '<div class="no-comments">Aucun commentaire pour le moment. Soyez le premier à commenter !</div>';
+                return;
+            }
+            comments.sort((a, b) => b.id - a.id);
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment-item';
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= comment.rating) starsHtml += '<i class="fas fa-star" style="color: var(--gold); font-size: 0.9rem;"></i>';
+                    else starsHtml += '<i class="far fa-star" style="color: var(--gold); font-size: 0.9rem;"></i>';
+                }
+                commentElement.innerHTML = `
+                    <div class="comment-header">
+                        <div class="comment-author">${comment.name}</div>
+                        <div class="comment-date">${comment.date} à ${comment.time}</div>
+                    </div>
+                    ${comment.rating > 0 ? `<div class="comment-rating">${starsHtml}</div>` : ''}
+                    <div class="comment-text">${comment.text}</div>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        // ===== QUESTIONNAIRE SYSTEM =====
+        function initQuestionnaire() {
+            const questionnaireBtn = document.getElementById('questionnaireBtn');
+            const questionnaireModal = document.getElementById('questionnaireModal');
+            const questionnaireClose = document.getElementById('questionnaireClose');
+            const questionnaireForm = document.getElementById('questionnaireForm');
+
+            questionnaireBtn.addEventListener('click', () => questionnaireModal.classList.add('active'));
+            questionnaireClose.addEventListener('click', () => questionnaireModal.classList.remove('active'));
+            questionnaireModal.addEventListener('click', (e) => {
+                if (e.target === questionnaireModal) questionnaireModal.classList.remove('active');
+            });
+
+            // Emojis
+            const emojiBtns = document.querySelectorAll('.emoji-btn');
+            emojiBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    emojiBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('experienceFeeling').value = this.getAttribute('data-value');
+                });
+            });
+
+            // Expectations
+            const expectationItems = document.querySelectorAll('#expectationsGroup .checkbox-item');
+            expectationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    expectationItems.forEach(i => i.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('expectations').value = this.getAttribute('data-value');
+                });
+            });
+
+            // Rating options
+            document.querySelectorAll('.rating-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const parent = this.closest('.rating-options');
+                    parent.querySelectorAll('.rating-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // Brand perception
+            const brandItems = document.querySelectorAll('#brandPerceptionGroup .checkbox-item');
+            let brandSelections = [];
+            brandItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    if (value === 'autre') {
+                        this.classList.toggle('selected');
+                        const otherInput = this.querySelector('input');
+                        otherInput.style.display = this.classList.contains('selected') ? 'block' : 'none';
+                        if (this.classList.contains('selected')) otherInput.focus();
+                    } else {
+                        this.classList.toggle('selected');
+                    }
+                    updateBrandSelections();
+                });
+            });
+
+            function updateBrandSelections() {
+                brandSelections = [];
+                brandItems.forEach(item => {
+                    if (item.classList.contains('selected')) {
+                        const value = item.getAttribute('data-value');
+                        if (value === 'autre') {
+                            const otherValue = item.querySelector('input').value;
+                            if (otherValue.trim()) brandSelections.push(`Autre: ${otherValue}`);
+                        } else {
+                            brandSelections.push(value);
+                        }
+                    }
+                });
+                document.getElementById('brandPerception').value = brandSelections.join(', ');
+            }
+
+            // Scale 1-10
+            document.querySelectorAll('.scale-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.scale-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('globalEmotion').value = this.getAttribute('data-value');
+                });
+            });
+
+            // Share permission
+            const shareItems = document.querySelectorAll('.checkbox-row .checkbox-item');
+            shareItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    shareItems.forEach(i => i.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('sharePermission').value = this.getAttribute('data-value');
+                });
+            });
+
+            // Form submission
+            questionnaireForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const testimonial = document.getElementById('testimonial').value;
+                if (!testimonial.trim()) {
+                    alert('Veuillez remplir votre témoignage en une phrase.');
+                    return;
+                }
+
+                const clientName = document.getElementById('clientName').value || 'Non spécifié';
+                const clientEmail = document.getElementById('clientEmail').value || 'Non spécifié';
+                const clientPhone = document.getElementById('clientPhone').value || 'Non spécifié';
+                const experienceFeeling = document.getElementById('experienceFeeling').value || 'Non spécifié';
+                const expectations = document.getElementById('expectations').value || 'Non spécifié';
+
+                const ratings = {};
+                document.querySelectorAll('.rating-options').forEach(group => {
+                    const question = group.getAttribute('data-question');
+                    const selected = group.querySelector('.rating-option.selected');
+                    ratings[question] = selected ? selected.getAttribute('data-value') : 'Non spécifié';
+                });
+
+                const brandPerception = document.getElementById('brandPerception').value || 'Non spécifié';
+                const globalEmotion = document.getElementById('globalEmotion').value || 'Non spécifié';
+                const improvementSuggestions = document.getElementById('improvementSuggestions').value || 'Non spécifié';
+                const memorableMoment = document.getElementById('memorableMoment').value || 'Non spécifié';
+                const sharePermission = document.getElementById('sharePermission').value || 'Non';
+                const personalMessage = document.getElementById('personalMessage').value || 'Non spécifié';
+
+                const whatsappMessage = `
+    ✨ *QUESTIONNAIRE ÉMOTIONNEL DE SATISFACTION - ÉLITE PRESTATIONS*
+
+    *INFORMATIONS CLIENT*
+    👤 Nom: ${clientName}
+    📧 Email: ${clientEmail}
+    📱 Téléphone: ${clientPhone}
+
+    🌟 *1. EXPÉRIENCE GLOBALE*
+    Ressenti: ${experienceFeeling}
+    Attentes: ${expectations}
+
+    💎 *2. ÉCHELLE ÉMOTIONNELLE (1-5)*
+    Accueil élégant: ${ratings.welcome}/5
+    Confiance inspirée: ${ratings.trust}/5
+    Professionnalisme: ${ratings.professionalism}/5
+    Importance des détails: ${ratings.details}/5
+    Maîtrise & organisation: ${ratings.organization}/5
+    Valeur émotionnelle: ${ratings.emotionalValue}/5
+
+    👑 *3. IMAGE & PERCEPTION*
+    Perception: ${brandPerception}
+    Émotion globale: ${globalEmotion}/10
+
+    🧭 *4. REGARD CONSTRUCTIF*
+    Améliorations suggérées: ${improvementSuggestions}
+    Moment mémorable: ${memorableMoment}
+
+    💬 *5. TÉMOIGNAGE ÉMOTIONNEL*
+    "${testimonial}"
+    Partage autorisé: ${sharePermission}
+
+    ✨ *6. MOT DE CLÔTURE*
+    Message à l'équipe: ${personalMessage}
+
+    *📊 SCORE MOYEN:* ${calculateAverageScore(ratings)}/5
+    *📅 Date:* ${new Date().toLocaleString('fr-FR')}
+    *🔗 Source:* Site web Elite Prestations
+
+    _Élite Prestations - Quand l'excellence devient une émotion_
+                `.trim();
+
+                const phoneNumber = "24162391121";
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                window.open(whatsappURL, '_blank');
+                questionnaireForm.reset();
+                resetQuestionnaireUI();
+                questionnaireModal.classList.remove('active');
+                alert('✅ Questionnaire envoyé! Redirection vers WhatsApp...\n\nMerci pour votre précieux retour d\'expérience.');
+            });
+
+            function calculateAverageScore(ratings) {
+                const values = Object.values(ratings).filter(v => v !== 'Non spécifié').map(v => parseInt(v));
+                if (values.length === 0) return 'N/A';
+                const sum = values.reduce((a, b) => a + b, 0);
+                return (sum / values.length).toFixed(1);
+            }
+
+            function resetQuestionnaireUI() {
+                document.querySelectorAll('.emoji-btn').forEach(btn => btn.classList.remove('selected'));
+                document.querySelectorAll('.checkbox-item').forEach(item => item.classList.remove('selected'));
+                document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+                document.querySelectorAll('.scale-option').forEach(option => option.classList.remove('selected'));
+                document.getElementById('experienceFeeling').value = '';
+                document.getElementById('expectations').value = '';
+                document.getElementById('brandPerception').value = '';
+                document.getElementById('globalEmotion').value = '';
+                document.getElementById('sharePermission').value = 'Non';
+                document.querySelectorAll('#brandPerceptionGroup input[type="text"]').forEach(input => {
+                    input.style.display = 'none';
+                    input.value = '';
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadComments();
+        });
+    </script>
+</body>
+</html>
