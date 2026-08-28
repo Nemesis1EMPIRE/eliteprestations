@@ -437,6 +437,20 @@
             filter: grayscale(0%);
         }
         
+        .portfolio-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 4px 10px;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            pointer-events: none;
+        }
+        
         /* About Section */
         .about-content {
             display: grid;
@@ -1976,6 +1990,7 @@
                             <h3>Mariage Prestige</h3>
                             <p>Organisation complète d'un mariage haut de gamme pour 150 invités</p>
                         </div>
+                        <div class="portfolio-category">Mariage</div>
                     </div>
                     <div class="portfolio-item" onclick="openFullscreen(this)">
                         <img src="assets/CONF.jpg" alt="Événement d'entreprise" class="portfolio-img">
@@ -1983,6 +1998,7 @@
                             <h3>Séminaire Corporate</h3>
                             <p>Organisation d'un séminaire d'entreprise avec protocole pour 200 participants</p>
                         </div>
+                        <div class="portfolio-category">Entreprise</div>
                     </div>
                     <div class="portfolio-item" onclick="openFullscreen(this)">
                         <img src="assets/ANNIV.jpg" alt="Anniversaire" class="portfolio-img">
@@ -1990,6 +2006,7 @@
                             <h3>Anniversaire Sur Mesure</h3>
                             <p>Célébration d'anniversaire dans notre salle événementielle pour 80 personnes</p>
                         </div>
+                        <div class="portfolio-category">Anniversaire</div>
                     </div>
                     <div class="portfolio-item" onclick="openFullscreen(this)">
                         <img src="assets/AIRFRANCE.jpg" alt="Conférence d'anniversaire Air France" class="portfolio-img">
@@ -1997,13 +2014,15 @@
                             <h3>Conférence d'anniversaire</h3>
                             <p>90 ans d'Air France</p>
                         </div>
+                        <div class="portfolio-category">Entreprise</div>
                     </div>
                     <div class="portfolio-item" onclick="openFullscreen(this)">
-                        <img src="assets/ACCUEIL.jpg" alt="Conférence internationale" class="portfolio-img">
+                        <img src="assets/ACCUEIL.jpg" alt="Accompagnement événementiel" class="portfolio-img">
                         <div class="portfolio-overlay">
-                            <h3>Protocole</h3>
-                            <p>Organisation complète avec hotesses, barmen et sécurité</p>
+                            <h3>Accompagnement Événementiel</h3>
+                            <p>Service d'accueil et d'accompagnement VIP pour vos invités</p>
                         </div>
+                        <div class="portfolio-category">Accompagnement</div>
                     </div>
                     <div class="portfolio-item" onclick="openFullscreen(this)">
                         <img src="assets/PRIX.jpg" alt="Cérémonie de remise de prix" class="portfolio-img">
@@ -2011,6 +2030,15 @@
                             <h3>Cérémonie de Prix</h3>
                             <p>Gala de remise de prix avec dîner et animation pour 250 personnes</p>
                         </div>
+                        <div class="portfolio-category">Entreprise</div>
+                    </div>
+                    <div class="portfolio-item" onclick="openFullscreen(this)">
+                        <img src="assets/voiture.jpg" alt="Transport et accompagnement" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h3>Transport VIP</h3>
+                            <p>Service de transport et d'accompagnement personnalisé</p>
+                        </div>
+                        <div class="portfolio-category">Accompagnement</div>
                     </div>
                 </div>
             </div>
@@ -2049,6 +2077,7 @@
                     <button class="filter-btn" data-filter="entreprise">Événements d'entreprise</button>
                     <button class="filter-btn" data-filter="anniversaire">Anniversaires</button>
                     <button class="filter-btn" data-filter="cocktail">Cocktails</button>
+                    <button class="filter-btn" data-filter="accompagnement">Accompagnement</button>
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item" data-category="mariage" onclick="openFullscreen(this)">
@@ -2114,6 +2143,22 @@
                             <p>Célébration conviviale et personnalisée</p>
                         </div>
                         <div class="gallery-category">Anniversaire</div>
+                    </div>
+                    <div class="gallery-item" data-category="accompagnement" onclick="openFullscreen(this)">
+                        <img src="assets/ACCUEIL.jpg" alt="Accompagnement VIP" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Accompagnement VIP</h3>
+                            <p>Service d'accueil personnalisé pour vos invités</p>
+                        </div>
+                        <div class="gallery-category">Accompagnement</div>
+                    </div>
+                    <div class="gallery-item" data-category="accompagnement" onclick="openFullscreen(this)">
+                        <img src="assets/voiture.jpg" alt="Transport événementiel" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Transport Événementiel</h3>
+                            <p>Solutions de transport pour vos événements</p>
+                        </div>
+                        <div class="gallery-category">Accompagnement</div>
                     </div>
                 </div>
             </div>
@@ -2193,6 +2238,7 @@
                                     <option value="Service de nettoyage">Service de nettoyage</option>
                                     <option value="Services professionnels">Services professionnels</option>
                                     <option value="Transport & Accompagnement">Transport & Accompagnement</option>
+                                    <option value="Accompagnement événementiel">Accompagnement événementiel</option>
                                 </select>
                             </div>
                             <div class="form-group">
